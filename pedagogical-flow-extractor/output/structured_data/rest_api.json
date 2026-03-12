@@ -1,0 +1,116 @@
+{
+    "video_summary": "This video introduces RESTful API architecture and its best practices, distinguishing between client-side and server-side rendering while explaining common HTTP methods (GET, POST, DELETE) for data operations, emphasizing SSR for the tutorial series.",
+    "concepts": [
+        {
+            "id": 1,
+            "standard_term": "RESTful API Architecture",
+            "colloquial_context": "rest app, restful app is different it's a state it requires to have particular rules these can be called best practices",
+            "description": "An architectural style for designing networked applications, characterized by being stateless, client-server, cacheable, layered, and having a uniform interface, often following specific best practices.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "HTTP Protocol",
+                "Client-Server Architecture"
+            ]
+        },
+        {
+            "id": 2,
+            "standard_term": "HTTP GET Method",
+            "colloquial_context": "get tu slash user, user data ko read kar ke read karo",
+            "description": "An HTTP method used to request data from a specified resource. GET requests should only retrieve data and have no other effect on the data.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "HTTP Protocol",
+                "API Endpoints (Routes)"
+            ]
+        },
+        {
+            "id": 3,
+            "standard_term": "HTTP POST Method",
+            "colloquial_context": "Post route, update user",
+            "description": "An HTTP method used to send data to a server to create or update a resource. It often results in a change in state or side effects on the server.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "HTTP Protocol",
+                "API Endpoints (Routes)"
+            ]
+        },
+        {
+            "id": 4,
+            "standard_term": "HTTP DELETE Method",
+            "colloquial_context": "tilit karna hai, dilit diaga liye thi ravt karni hai",
+            "description": "An HTTP method used to request that a specified resource be deleted.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "HTTP Protocol",
+                "API Endpoints (Routes)"
+            ]
+        },
+        {
+            "id": 5,
+            "standard_term": "API Endpoints (Routes)",
+            "colloquial_context": "slash user, is route ko yaha karna chiye, post raut aap diska naam ke chlash abdet yojar",
+            "description": "Specific URLs that an API exposes, allowing clients to interact with particular resources or functionalities on the server.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "URL",
+                "HTTP Protocol"
+            ]
+        },
+        {
+            "id": 6,
+            "standard_term": "Client-Side Rendering (CSR)",
+            "colloquial_context": "client side rendering weiber side rendering it slow",
+            "description": "A web rendering approach where the browser downloads a minimal HTML page and JavaScript, which then renders the full content dynamically in the user's browser.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "JavaScript",
+                "HTML",
+                "Web Browser"
+            ]
+        },
+        {
+            "id": 7,
+            "standard_term": "Server-Side Rendering (SSR)",
+            "colloquial_context": "server side rendering is very fast as we get the data we have to follow this SSR thing in our tutorial series",
+            "description": "A web rendering approach where the server processes the request and sends a fully rendered HTML page to the client, which the browser can then display immediately.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "HTML",
+                "Web Server"
+            ]
+        },
+        {
+            "id": 8,
+            "standard_term": "API Best Practices",
+            "colloquial_context": "best practices, pehla rule, agar buticol rule kya kehta hai",
+            "description": "Guidelines and conventions for designing robust, scalable, and maintainable APIs, often related to consistent use of HTTP methods, status codes, and URL structures.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "RESTful API Architecture",
+                "HTTP Protocol"
+            ]
+        },
+        {
+            "id": 9,
+            "standard_term": "Data Retrieval (Read Operation)",
+            "colloquial_context": "User data ko read kar ke read karo",
+            "description": "The process of fetching existing data from a server or database, typically performed using the HTTP GET method.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "HTTP GET Method",
+                "API Endpoints (Routes)"
+            ]
+        },
+        {
+            "id": 10,
+            "standard_term": "Data Update Operation",
+            "colloquial_context": "Yojar ko yojar ko abdet kar lega, post route for update",
+            "description": "The process of modifying existing data on a server or database, often performed using HTTP POST or PUT methods.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "HTTP POST Method",
+                "API Endpoints (Routes)"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,208 @@
+{
+    "topic": "nginx",
+    "video_summary": "The video introduces Nginx, explaining its core benefits such as load balancing, HTTP caching, and acting as a reverse proxy, demonstrating its role in handling user requests and briefly touching upon its practical deployment using Docker on Ubuntu.",
+    "total_concepts": 7,
+    "recommended_sequence": [
+        {
+            "step": 1,
+            "concept_id": 2,
+            "concept": "Load Balancing",
+            "description": "The process of distributing network traffic across multiple servers to ensure no single server is overloaded, improving responsiveness and availability.",
+            "relative_importance": 7,
+            "prerequisites": [],
+            "unlocks": [
+                "Nginx"
+            ],
+            "reason": "'Load Balancing' is a root concept (no prerequisites) and must be understood first because it directly enables: Nginx."
+        },
+        {
+            "step": 2,
+            "concept_id": 3,
+            "concept": "HTTP Caching",
+            "description": "Storing copies of frequently accessed web content (like images or pages) closer to the user or on an intermediary server (like Nginx) to reduce server load and speed up subsequent requests.",
+            "relative_importance": 8,
+            "prerequisites": [],
+            "unlocks": [
+                "Nginx"
+            ],
+            "reason": "'HTTP Caching' is a root concept (no prerequisites) and must be understood first because it directly enables: Nginx."
+        },
+        {
+            "step": 3,
+            "concept_id": 4,
+            "concept": "Reverse Proxy",
+            "description": "A server that sits in front of one or more web servers and forwards client requests to those web servers. It enhances security, performance, and reliability.",
+            "relative_importance": 7,
+            "prerequisites": [],
+            "unlocks": [
+                "Nginx"
+            ],
+            "reason": "'Reverse Proxy' is a root concept (no prerequisites) and must be understood first because it directly enables: Nginx."
+        },
+        {
+            "step": 4,
+            "concept_id": 5,
+            "concept": "Docker",
+            "description": "A platform for developing, shipping, and running applications in 'containers', which are lightweight, standalone, executable packages that include everything needed to run a piece of software.",
+            "relative_importance": 6,
+            "prerequisites": [],
+            "unlocks": [
+                "Docker Image"
+            ],
+            "reason": "'Docker' is a root concept (no prerequisites) and must be understood first because it directly enables: Docker Image."
+        },
+        {
+            "step": 5,
+            "concept_id": 7,
+            "concept": "Ubuntu",
+            "description": "A popular open-source Linux operating system, often used for server deployments and development environments.",
+            "relative_importance": 3,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Ubuntu' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 6,
+            "concept_id": 1,
+            "concept": "Nginx",
+            "description": "A powerful open-source web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache. It's known for its high performance and low resource consumption.",
+            "relative_importance": 10,
+            "prerequisites": [
+                "Load Balancing",
+                "HTTP Caching",
+                "Reverse Proxy"
+            ],
+            "unlocks": [],
+            "reason": "'Nginx' builds upon Load Balancing, HTTP Caching, Reverse Proxy (importance 10/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 7,
+            "concept_id": 6,
+            "concept": "Docker Image",
+            "description": "A read-only template with instructions for creating a Docker container. It includes the application, libraries, dependencies, and configurations required to run it.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "Docker"
+            ],
+            "unlocks": [],
+            "reason": "'Docker Image' builds upon Docker (importance 5/10) and is a terminal concept in this learning path."
+        }
+    ],
+    "parallel_groups": [
+        {
+            "group": 1,
+            "level_label": "Foundation",
+            "concepts": [
+                {
+                    "concept_id": 2,
+                    "concept": "Load Balancing",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 3,
+                    "concept": "HTTP Caching",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 4,
+                    "concept": "Reverse Proxy",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 5,
+                    "concept": "Docker",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 7,
+                    "concept": "Ubuntu",
+                    "relative_importance": 3
+                }
+            ],
+            "parallel_count": 5,
+            "note": "These are entry-point concepts — start here."
+        },
+        {
+            "group": 2,
+            "level_label": "Level 2",
+            "concepts": [
+                {
+                    "concept_id": 1,
+                    "concept": "Nginx",
+                    "relative_importance": 10
+                },
+                {
+                    "concept_id": 6,
+                    "concept": "Docker Image",
+                    "relative_importance": 5
+                }
+            ],
+            "parallel_count": 2,
+            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+        }
+    ],
+    "components": [
+        {
+            "component_id": 1,
+            "concept_count": 4,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 2,
+                    "concept": "Load Balancing"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 3,
+                    "concept": "HTTP Caching"
+                },
+                {
+                    "step": 3,
+                    "concept_id": 4,
+                    "concept": "Reverse Proxy"
+                },
+                {
+                    "step": 4,
+                    "concept_id": 1,
+                    "concept": "Nginx"
+                }
+            ]
+        },
+        {
+            "component_id": 2,
+            "concept_count": 2,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 5,
+                    "concept": "Docker"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 6,
+                    "concept": "Docker Image"
+                }
+            ]
+        },
+        {
+            "component_id": 3,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 7,
+                    "concept": "Ubuntu"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "algorithm": "Kahn's BFS topological sort",
+        "handles_disconnected_components": true,
+        "total_parallel_groups": 2,
+        "total_components": 3
+    }
+}

@@ -1,0 +1,224 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    <style>
+
+  /* ── Google Fonts ── */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Roboto, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+  }
+
+  /* ── Top header bar ── */
+  #pg-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1e293b;
+    color: #f1f5f9;
+    padding: 14px 24px;
+    gap: 16px;
+  }
+  #pg-header .pg-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  /* ── Legend panel ── */
+  #pg-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 230px;
+    font-size: 0.75rem;
+    color: #e2e8f0;
+  }
+  #pg-legend .pg-legend-title {
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: #f8fafc;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 4px;
+  }
+  .pg-legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
+  }
+  .pg-legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  /* ── Graph canvas wrapper ── */
+  #mynetwork {
+    width: 100%;
+    height: calc(100vh - 70px) !important;
+    background: #f8fafc;
+    border: none !important;
+  }
+
+  </style>
+</head>
+
+
+    <body>
+<div id="pg-header">
+  <span class="pg-title">Ci Cd Pipeline</span>
+  <div id="pg-legend">
+    <div class="pg-legend-title">Legend</div>
+    <div class="pg-legend-row">
+      <div class="pg-legend-dot" style="background:#ff6b6b;"></div>
+      <span><strong>Red</strong> &mdash; Foundational &nbsp;(Start Here)</span>
+    </div>
+    <div class="pg-legend-row">
+      <div class="pg-legend-dot" style="background:#4a90d9;"></div>
+      <span><strong>Blue</strong> &mdash; Advanced &nbsp;(Dependent)</span>
+    </div>
+    <div class="pg-legend-row">
+      <div class="pg-legend-dot" style="background:#94a3b8; width:8px; height:8px;"></div>
+      <span>Node Size &nbsp;&rarr;&nbsp; Pedagogical Importance</span>
+    </div>
+    <div class="pg-legend-row" style="margin-top:4px; color:#94a3b8;">
+      <span>&#8679; Prerequisites flow top &rarr; bottom</span>
+    </div>
+  </div>
+</div>
+
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6b6b", "id": 1, "label": "Software Development Workflow", "shape": "dot", "size": 38, "title": "\u003cb\u003eSoftware Development Workflow\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 8/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eThe sequential process of developing software, which typically involves writing new code, merging it with the existing codebase, thorough testing, and finally deploying the application to users."}, {"color": "#4a90d9", "id": 4, "label": "Software Testing", "shape": "dot", "size": 26, "title": "\u003cb\u003eSoftware Testing\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 4/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eThe process of evaluating software to identify bugs, errors, or any deviations from expected behavior, ensuring quality before deployment."}, {"color": "#4a90d9", "id": 5, "label": "Software Deployment", "shape": "dot", "size": 35, "title": "\u003cb\u003eSoftware Deployment\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 7/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eThe process of making a software application available for use by end-users, involving tasks like releasing, configuring, and enabling the software on servers."}, {"color": "#4a90d9", "id": 6, "label": "CI/CD (Continuous Integration/Continuous Delivery)", "shape": "dot", "size": 41, "title": "\u003cb\u003eCI/CD (Continuous Integration/Continuous Delivery)\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 9/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eA set of practices in software development that automates the integration, testing, and deployment of code changes, aiming to deliver software reliably and frequently."}, {"color": "#4a90d9", "id": 7, "label": "Manual Software Development Process", "shape": "dot", "size": 32, "title": "\u003cb\u003eManual Software Development Process\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 6/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eThe traditional method where development, testing, and deployment steps are performed manually, often leading to increased human error, inconsistencies, and slower release cycles."}, {"color": "#4a90d9", "id": 13, "label": "Manual Deployment Approval", "shape": "dot", "size": 32, "title": "\u003cb\u003eManual Deployment Approval\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 6/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eA step in the deployment process where human authorization is required before a software change can be released, typically used for critical systems or highly sensitive changes."}, {"color": "#4a90d9", "id": 15, "label": "Canary Deployment / Progressive Delivery", "shape": "dot", "size": 38, "title": "\u003cb\u003eCanary Deployment / Progressive Delivery\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 8/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eA deployment strategy that releases a new version of software to a small subset of users first. If the new version performs well without issues, it\u0027s gradually rolled out to more users, minimizing risk."}, {"color": "#4a90d9", "id": 9, "label": "CI/CD Automation Tools", "shape": "dot", "size": 38, "title": "\u003cb\u003eCI/CD Automation Tools\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 8/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eSoftware platforms designed to automate the various stages of a CI/CD pipeline, including building, testing, and deploying applications."}, {"color": "#4a90d9", "id": 14, "label": "Continuous Delivery (CD)", "shape": "dot", "size": 35, "title": "\u003cb\u003eContinuous Delivery (CD)\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 7/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eA software engineering approach where teams produce software in short cycles, ensuring that the software can be released reliably at any time, though actual deployment to production may still require a manual trigger or approval."}, {"color": "#4a90d9", "id": 10, "label": "Jenkins", "shape": "dot", "size": 41, "title": "\u003cb\u003eJenkins\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 9/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eAn open-source automation server widely used for CI/CD, acting as a jobs orchestrator to automate software building, testing, and deployment. It\u0027s known for its extensibility but can be complex to maintain."}, {"color": "#4a90d9", "id": 11, "label": "GitHub Actions", "shape": "dot", "size": 35, "title": "\u003cb\u003eGitHub Actions\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 7/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eA feature from GitHub that allows automation of software workflows, including CI/CD, directly within a GitHub repository, often seen as a modern alternative to Jenkins."}, {"color": "#4a90d9", "id": 12, "label": "Jobs Orchestrator", "shape": "dot", "size": 29, "title": "\u003cb\u003eJobs Orchestrator\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 5/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eA system or tool responsible for scheduling, managing, and executing various automated tasks or \u0027jobs\u0027 in a defined sequence, common in CI/CD pipelines."}, {"color": "#ff6b6b", "id": 2, "label": "Scalable Application", "shape": "dot", "size": 29, "title": "\u003cb\u003eScalable Application\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 5/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eAn application designed to handle increasing workloads or user bases over time, necessitating continuous changes, bug fixes, and feature additions rather than a one-time build."}, {"color": "#ff6b6b", "id": 3, "label": "Codebase", "shape": "dot", "size": 23, "title": "\u003cb\u003eCodebase\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 3/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eThe complete collection of source code files that comprise a particular software application or project."}, {"color": "#ff6b6b", "id": 8, "label": "Errors / Bugs", "shape": "dot", "size": 26, "title": "\u003cb\u003eErrors / Bugs\u003c/b\u003e\u003cbr\u003e\u003ci\u003eImportance: 4/10\u003c/i\u003e\u003cbr\u003e\u003cbr\u003eDefects or flaws in software that cause it to behave unexpectedly or incorrectly, often leading to malfunctions or crashes."}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": 1, "to": 4, "width": 1}, {"arrows": "to", "from": 1, "to": 5, "width": 1}, {"arrows": "to", "from": 1, "to": 6, "width": 1}, {"arrows": "to", "from": 1, "to": 7, "width": 1}, {"arrows": "to", "from": 4, "to": 5, "width": 1}, {"arrows": "to", "from": 5, "to": 6, "width": 1}, {"arrows": "to", "from": 5, "to": 13, "width": 1}, {"arrows": "to", "from": 5, "to": 15, "width": 1}, {"arrows": "to", "from": 6, "to": 9, "width": 1}, {"arrows": "to", "from": 6, "to": 14, "width": 1}, {"arrows": "to", "from": 9, "to": 10, "width": 1}, {"arrows": "to", "from": 9, "to": 11, "width": 1}, {"arrows": "to", "from": 10, "to": 12, "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"layout": {"hierarchical": {"enabled": true, "direction": "UD", "sortMethod": "directed", "nodeSpacing": 250, "levelSeparation": 180, "treeSpacing": 300, "blockShifting": true, "edgeMinimization": true, "parentCentralization": true}}, "physics": {"enabled": true, "solver": "hierarchicalRepulsion", "hierarchicalRepulsion": {"centralGravity": 0.1, "springLength": 300, "springConstant": 0.01, "nodeDistance": 250, "damping": 0.09, "avoidOverlap": 1}, "stabilization": {"enabled": true, "iterations": 1000, "updateInterval": 50, "fit": true}}, "nodes": {"shape": "dot", "borderWidth": 2, "borderWidthSelected": 3, "shadow": {"enabled": true, "color": "rgba(0,0,0,0.15)", "size": 8, "x": 2, "y": 2}, "font": {"size": 15, "face": "Inter,Roboto,sans-serif", "color": "#1e293b", "bold": {"mod": "bold"}}}, "edges": {"color": {"color": "#94a3b8", "highlight": "#3b82f6", "hover": "#3b82f6", "inherit": false}, "width": 1.5, "smooth": {"type": "cubicBezier", "forceDirection": "vertical", "roundness": 0.4}, "arrows": {"to": {"enabled": true, "scaleFactor": 0.7, "type": "arrow"}}, "hoverWidth": 2.5, "selectionWidth": 2.5}, "interaction": {"hover": true, "tooltipDelay": 150, "navigationButtons": true, "keyboard": {"enabled": true}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

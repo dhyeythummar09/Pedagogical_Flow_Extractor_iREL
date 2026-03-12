@@ -1,0 +1,444 @@
+{
+    "topic": "ci_cd_pipeline",
+    "video_summary": "This video explores the evolution of software deployment, from manual processes to automated CI/CD pipelines, discussing key tools like Jenkins and GitHub Actions, and detailing various deployment strategies including manual approval, continuous delivery, and progressive rollouts.",
+    "total_concepts": 15,
+    "recommended_sequence": [
+        {
+            "step": 1,
+            "concept_id": 1,
+            "concept": "Software Development Workflow",
+            "description": "The sequential process of developing software, which typically involves writing new code, merging it with the existing codebase, thorough testing, and finally deploying the application to users.",
+            "relative_importance": 8,
+            "prerequisites": [],
+            "unlocks": [
+                "Software Testing",
+                "Software Deployment",
+                "CI/CD (Continuous Integration/Continuous Delivery)",
+                "Manual Software Development Process"
+            ],
+            "reason": "'Software Development Workflow' is a root concept (no prerequisites) and must be understood first because it directly enables: Software Testing, Software Deployment, CI/CD (Continuous Integration/Continuous Delivery), Manual Software Development Process."
+        },
+        {
+            "step": 2,
+            "concept_id": 2,
+            "concept": "Scalable Application",
+            "description": "An application designed to handle increasing workloads or user bases over time, necessitating continuous changes, bug fixes, and feature additions rather than a one-time build.",
+            "relative_importance": 5,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Scalable Application' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 3,
+            "concept_id": 3,
+            "concept": "Codebase",
+            "description": "The complete collection of source code files that comprise a particular software application or project.",
+            "relative_importance": 3,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Codebase' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 4,
+            "concept_id": 8,
+            "concept": "Errors / Bugs",
+            "description": "Defects or flaws in software that cause it to behave unexpectedly or incorrectly, often leading to malfunctions or crashes.",
+            "relative_importance": 4,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Errors / Bugs' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 5,
+            "concept_id": 4,
+            "concept": "Software Testing",
+            "description": "The process of evaluating software to identify bugs, errors, or any deviations from expected behavior, ensuring quality before deployment.",
+            "relative_importance": 4,
+            "prerequisites": [
+                "Software Development Workflow"
+            ],
+            "unlocks": [
+                "Software Deployment"
+            ],
+            "reason": "'Software Testing' builds upon Software Development Workflow (importance 4/10) and is required before studying: Software Deployment."
+        },
+        {
+            "step": 6,
+            "concept_id": 7,
+            "concept": "Manual Software Development Process",
+            "description": "The traditional method where development, testing, and deployment steps are performed manually, often leading to increased human error, inconsistencies, and slower release cycles.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "Software Development Workflow"
+            ],
+            "unlocks": [],
+            "reason": "'Manual Software Development Process' builds upon Software Development Workflow (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 7,
+            "concept_id": 5,
+            "concept": "Software Deployment",
+            "description": "The process of making a software application available for use by end-users, involving tasks like releasing, configuring, and enabling the software on servers.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "Software Development Workflow",
+                "Software Testing"
+            ],
+            "unlocks": [
+                "CI/CD (Continuous Integration/Continuous Delivery)",
+                "Manual Deployment Approval",
+                "Canary Deployment / Progressive Delivery"
+            ],
+            "reason": "'Software Deployment' builds upon Software Development Workflow, Software Testing (importance 7/10) and is required before studying: CI/CD (Continuous Integration/Continuous Delivery), Manual Deployment Approval, Canary Deployment / Progressive Delivery."
+        },
+        {
+            "step": 8,
+            "concept_id": 6,
+            "concept": "CI/CD (Continuous Integration/Continuous Delivery)",
+            "description": "A set of practices in software development that automates the integration, testing, and deployment of code changes, aiming to deliver software reliably and frequently.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Software Development Workflow",
+                "Software Deployment"
+            ],
+            "unlocks": [
+                "CI/CD Automation Tools",
+                "Continuous Delivery (CD)"
+            ],
+            "reason": "'CI/CD (Continuous Integration/Continuous Delivery)' builds upon Software Development Workflow, Software Deployment (importance 9/10) and is required before studying: CI/CD Automation Tools, Continuous Delivery (CD)."
+        },
+        {
+            "step": 9,
+            "concept_id": 13,
+            "concept": "Manual Deployment Approval",
+            "description": "A step in the deployment process where human authorization is required before a software change can be released, typically used for critical systems or highly sensitive changes.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "Software Deployment"
+            ],
+            "unlocks": [],
+            "reason": "'Manual Deployment Approval' builds upon Software Deployment (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 10,
+            "concept_id": 15,
+            "concept": "Canary Deployment / Progressive Delivery",
+            "description": "A deployment strategy that releases a new version of software to a small subset of users first. If the new version performs well without issues, it's gradually rolled out to more users, minimizing risk.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "Software Deployment"
+            ],
+            "unlocks": [],
+            "reason": "'Canary Deployment / Progressive Delivery' builds upon Software Deployment (importance 8/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 11,
+            "concept_id": 9,
+            "concept": "CI/CD Automation Tools",
+            "description": "Software platforms designed to automate the various stages of a CI/CD pipeline, including building, testing, and deploying applications.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "CI/CD (Continuous Integration/Continuous Delivery)"
+            ],
+            "unlocks": [
+                "Jenkins",
+                "GitHub Actions"
+            ],
+            "reason": "'CI/CD Automation Tools' builds upon CI/CD (Continuous Integration/Continuous Delivery) (importance 8/10) and is required before studying: Jenkins, GitHub Actions."
+        },
+        {
+            "step": 12,
+            "concept_id": 14,
+            "concept": "Continuous Delivery (CD)",
+            "description": "A software engineering approach where teams produce software in short cycles, ensuring that the software can be released reliably at any time, though actual deployment to production may still require a manual trigger or approval.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "CI/CD (Continuous Integration/Continuous Delivery)"
+            ],
+            "unlocks": [],
+            "reason": "'Continuous Delivery (CD)' builds upon CI/CD (Continuous Integration/Continuous Delivery) (importance 7/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 13,
+            "concept_id": 10,
+            "concept": "Jenkins",
+            "description": "An open-source automation server widely used for CI/CD, acting as a jobs orchestrator to automate software building, testing, and deployment. It's known for its extensibility but can be complex to maintain.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "CI/CD Automation Tools"
+            ],
+            "unlocks": [
+                "Jobs Orchestrator"
+            ],
+            "reason": "'Jenkins' builds upon CI/CD Automation Tools (importance 9/10) and is required before studying: Jobs Orchestrator."
+        },
+        {
+            "step": 14,
+            "concept_id": 11,
+            "concept": "GitHub Actions",
+            "description": "A feature from GitHub that allows automation of software workflows, including CI/CD, directly within a GitHub repository, often seen as a modern alternative to Jenkins.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "CI/CD Automation Tools"
+            ],
+            "unlocks": [],
+            "reason": "'GitHub Actions' builds upon CI/CD Automation Tools (importance 7/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 15,
+            "concept_id": 12,
+            "concept": "Jobs Orchestrator",
+            "description": "A system or tool responsible for scheduling, managing, and executing various automated tasks or 'jobs' in a defined sequence, common in CI/CD pipelines.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "Jenkins"
+            ],
+            "unlocks": [],
+            "reason": "'Jobs Orchestrator' builds upon Jenkins (importance 5/10) and is a terminal concept in this learning path."
+        }
+    ],
+    "parallel_groups": [
+        {
+            "group": 1,
+            "level_label": "Foundation",
+            "concepts": [
+                {
+                    "concept_id": 1,
+                    "concept": "Software Development Workflow",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 2,
+                    "concept": "Scalable Application",
+                    "relative_importance": 5
+                },
+                {
+                    "concept_id": 3,
+                    "concept": "Codebase",
+                    "relative_importance": 3
+                },
+                {
+                    "concept_id": 8,
+                    "concept": "Errors / Bugs",
+                    "relative_importance": 4
+                }
+            ],
+            "parallel_count": 4,
+            "note": "These are entry-point concepts — start here."
+        },
+        {
+            "group": 2,
+            "level_label": "Level 2",
+            "concepts": [
+                {
+                    "concept_id": 4,
+                    "concept": "Software Testing",
+                    "relative_importance": 4
+                },
+                {
+                    "concept_id": 7,
+                    "concept": "Manual Software Development Process",
+                    "relative_importance": 6
+                }
+            ],
+            "parallel_count": 2,
+            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 3,
+            "level_label": "Level 3",
+            "concepts": [
+                {
+                    "concept_id": 5,
+                    "concept": "Software Deployment",
+                    "relative_importance": 7
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
+        },
+        {
+            "group": 4,
+            "level_label": "Level 4",
+            "concepts": [
+                {
+                    "concept_id": 6,
+                    "concept": "CI/CD (Continuous Integration/Continuous Delivery)",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 13,
+                    "concept": "Manual Deployment Approval",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 15,
+                    "concept": "Canary Deployment / Progressive Delivery",
+                    "relative_importance": 8
+                }
+            ],
+            "parallel_count": 3,
+            "note": "All 3 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 5,
+            "level_label": "Level 5",
+            "concepts": [
+                {
+                    "concept_id": 9,
+                    "concept": "CI/CD Automation Tools",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 14,
+                    "concept": "Continuous Delivery (CD)",
+                    "relative_importance": 7
+                }
+            ],
+            "parallel_count": 2,
+            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 6,
+            "level_label": "Level 6",
+            "concepts": [
+                {
+                    "concept_id": 10,
+                    "concept": "Jenkins",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 11,
+                    "concept": "GitHub Actions",
+                    "relative_importance": 7
+                }
+            ],
+            "parallel_count": 2,
+            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 7,
+            "level_label": "Level 7",
+            "concepts": [
+                {
+                    "concept_id": 12,
+                    "concept": "Jobs Orchestrator",
+                    "relative_importance": 5
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
+        }
+    ],
+    "components": [
+        {
+            "component_id": 1,
+            "concept_count": 12,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 1,
+                    "concept": "Software Development Workflow"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 4,
+                    "concept": "Software Testing"
+                },
+                {
+                    "step": 3,
+                    "concept_id": 7,
+                    "concept": "Manual Software Development Process"
+                },
+                {
+                    "step": 4,
+                    "concept_id": 5,
+                    "concept": "Software Deployment"
+                },
+                {
+                    "step": 5,
+                    "concept_id": 6,
+                    "concept": "CI/CD (Continuous Integration/Continuous Delivery)"
+                },
+                {
+                    "step": 6,
+                    "concept_id": 13,
+                    "concept": "Manual Deployment Approval"
+                },
+                {
+                    "step": 7,
+                    "concept_id": 15,
+                    "concept": "Canary Deployment / Progressive Delivery"
+                },
+                {
+                    "step": 8,
+                    "concept_id": 9,
+                    "concept": "CI/CD Automation Tools"
+                },
+                {
+                    "step": 9,
+                    "concept_id": 14,
+                    "concept": "Continuous Delivery (CD)"
+                },
+                {
+                    "step": 10,
+                    "concept_id": 10,
+                    "concept": "Jenkins"
+                },
+                {
+                    "step": 11,
+                    "concept_id": 11,
+                    "concept": "GitHub Actions"
+                },
+                {
+                    "step": 12,
+                    "concept_id": 12,
+                    "concept": "Jobs Orchestrator"
+                }
+            ]
+        },
+        {
+            "component_id": 2,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 2,
+                    "concept": "Scalable Application"
+                }
+            ]
+        },
+        {
+            "component_id": 3,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 3,
+                    "concept": "Codebase"
+                }
+            ]
+        },
+        {
+            "component_id": 4,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 8,
+                    "concept": "Errors / Bugs"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "algorithm": "Kahn's BFS topological sort",
+        "handles_disconnected_components": true,
+        "total_parallel_groups": 7,
+        "total_components": 4
+    }
+}

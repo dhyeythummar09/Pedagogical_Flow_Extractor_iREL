@@ -1,0 +1,97 @@
+{
+    "video_summary": "The video provides a comprehensive explanation of deadlock in computer science, starting with a general definition and progressing through various real-life and technical examples, finally detailing the four necessary and sufficient conditions for deadlock occurrence.",
+    "concepts": [
+        {
+            "id": 1,
+            "standard_term": "Deadlock",
+            "colloquial_context": "\u0924\u0926\u094d\u0932\u094b\u0915 (tadloak), '\u092c\u094b\u091b\u0924\u093e\u0930 \u0935\u0947\u091f\u093f\u0902\u0917 \u0906\u092a\u0928\u0940\u0917 \u0906\u092a \u0938\u092e\u094d\u0935\u093f\u0935\u0948\u0902\u091f, \u092c\u091f\u094b \u0935\u094b \u0935\u093f\u092f\u093e\u090f \u0906\u0916\u0915\u0930 \u0928\u0939\u0940\u0902 \u0939\u094b\u0917\u093e' (Both are waiting for an event to happen, but that event will not occur). Illustrated with '\u092c\u0948\u0902\u0915 \u0905\u0915\u093e\u0909\u0902\u091f \u0913\u092a\u0928\u093f\u0902\u0917' scenario (though not explicitly named, the speaker describes a scenario where opening an account requires money deposit, which itself requires the account to be open, creating a wait). Also, the 'two cars A and B' example.",
+            "description": "A situation in concurrent processing where two or more processes are indefinitely blocked, waiting for each other to release the resources that they need. The instructor states that for deadlock to occur, four necessary and sufficient conditions must be met.",
+            "relative_importance": 10,
+            "prerequisites": [
+                "Process",
+                "Event",
+                "Resource"
+            ]
+        },
+        {
+            "id": 2,
+            "standard_term": "Process",
+            "colloquial_context": "P1, P2, P3 (as process names), '\u0921\u094d\u0930\u093e\u0907\u0935\u0930\u094d\u0938' (drivers in car example)",
+            "description": "An instance of a computer program that is being executed. Processes are the active entities in an operating system that request and use resources.",
+            "relative_importance": 7,
+            "prerequisites": []
+        },
+        {
+            "id": 3,
+            "standard_term": "Event",
+            "colloquial_context": "'\u0938\u092e \u0907\u0935\u0947\u0902\u091f' (some event), '\u0935\u094d\u0939\u093e\u091f \u0907\u091c \u0926 \u0907\u0935\u0947\u0902\u091f' (what is the event)",
+            "description": "A particular occurrence or state change that a process might be waiting for to continue its execution, often involving the availability or release of a resource.",
+            "relative_importance": 6,
+            "prerequisites": []
+        },
+        {
+            "id": 4,
+            "standard_term": "Resource",
+            "colloquial_context": "R1, R2, R3 (as resource names), '\u0938\u0947\u092e\u093e\u092b\u094b\u0930\u094d\u0938 S1 \u090f\u0902\u0921 S2' (semaphores S1 and S2), '\u092a\u094d\u0930\u093f\u0902\u091f\u0930'",
+            "description": "Any tangible or intangible component (e.g., CPU, memory, I/O devices, files, semaphores) that a process needs to complete its task. Resources can be allocated to processes.",
+            "relative_importance": 8,
+            "prerequisites": []
+        },
+        {
+            "id": 5,
+            "standard_term": "Semaphore",
+            "colloquial_context": "\u0938\u0947\u092e\u093e\u092b\u094b\u0930\u094d\u0938 S1 \u090f\u0902\u0921 S2 (semaphores S1 and S2)",
+            "description": "A synchronization primitive used to control access to shared resources by multiple processes. It acts as a flag or counter to manage concurrent access.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "Process",
+                "Resource"
+            ]
+        },
+        {
+            "id": 6,
+            "standard_term": "Mutual Exclusion",
+            "colloquial_context": "'\u091c\u094b \u0930\u093f\u0938\u094b\u0930\u094d\u0938 \u0906\u092a \u092f\u0942\u095b \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948 \u0907\u0928 \u0926 \u0938\u093f\u0928\u0947\u0930\u093f\u092f\u094b, \u0926\u0948\u091f \u0930\u093f\u0938\u094b\u0930\u094d\u0938 \u092e\u0938\u094d\u091f \u092c\u0940 \u092f\u0942\u095b\u094d\u0921 \u0907\u0928 \u0905 \u092e\u094d\u092f\u0942\u091a\u0932 \u090f\u0915\u094d\u0938\u0915\u094d\u0932\u0942\u0938\u093f\u0935 \u0935\u0947.' (Whatever resource you are using in the scenario, that resource must be used in a mutual exclusive way.) '\u0935\u0928 \u092c\u093e\u0908 \u0935\u0928' (one by one), '\u0907\u0902\u091f\u0930\u0932\u0940\u0935\u093f\u0902\u0917 \u0907\u0938 \u0928\u0949\u091f \u0905\u0932\u093e\u0909\u0921' (interleaving is not allowed).",
+            "description": "The first necessary condition for deadlock. It states that at least one resource must be held in a non-sharable mode; only one process at a time can use the resource. If another process requests that resource, it must be delayed until the resource has been released.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process"
+            ]
+        },
+        {
+            "id": 7,
+            "standard_term": "No Preemption",
+            "colloquial_context": "'\u0905\u0938\u093e \u0928\u093e\u0909 \u0915\u0940 \u0935\u0928 \u092a\u094d\u0930\u094b\u0938\u0947\u0938 \u0907\u0938 \u0939\u094b\u0932\u094d\u0921\u093f\u0902\u0917 \u0938\u092e \u0930\u093f\u0938\u094b\u0930\u094d\u0938 \u090f\u0902\u0921 \u0905 \u0938\u0947\u0915\u0902\u0921 \u092a\u094d\u0930\u094b\u0938\u0947\u0938 \u0915\u0947\u092e \u090f\u0902\u0921 \u0935\u0940 \u092a\u094d\u0930\u0940\u092e\u094d\u092a\u094d\u0936\u0928 \u0926 \u092a\u094d\u0930\u0940\u0935\u093f\u092f\u0938 \u092a\u094d\u0930\u094b\u0938\u0947\u0938. \u0926\u0948\u091f \u0930\u093f\u0932\u0940\u091c \u092f\u094b\u0930 \u0930\u093f\u0938\u094b\u0930\u094d\u0938\u0947\u091c. \u0928\u094b. \u092a\u094d\u0930\u0940\u092e\u094d\u0936\u0928 \u0935\u093f\u0932 \u0928\u0949\u091f \u092c\u0940 \u0926\u0947\u092f\u0930.' (It's not like one process is holding some resource and a second process came and we preempted the previous process. 'Release your resources.' No. Preemption will not be there.)",
+            "description": "The second necessary condition for deadlock. A resource cannot be forcibly taken away from a process that is holding it. The resource must be released voluntarily by the process that is holding it, after the process has completed its task.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process"
+            ]
+        },
+        {
+            "id": 8,
+            "standard_term": "Hold and Wait",
+            "colloquial_context": "'P1 \u0907\u0938 \u0939\u094b\u0932\u094d\u0921\u093f\u0902\u0917 \u0935\u0928 \u0930\u093f\u0938\u094b\u0930\u094d\u0938 \u0926\u0948\u091f \u0907\u0938 R1. \u090f\u0902\u0921 \u0935\u0947\u091f\u093f\u0902\u0917 \u092b\u0949\u0930 R2. \u090f\u0902\u0921 P2 \u0907\u0938 \u0939\u094b\u0932\u094d\u0921\u093f\u0902\u0917 \u0935\u0928 \u0930\u093f\u0938\u094b\u0930\u094d\u0938 \u0926\u0948\u091f \u0907\u0938 R2. \u090f\u0902\u0921 \u0935\u0947\u091f\u093f\u0902\u0917 \u092b\u0949\u0930 R1.' (P1 is holding one resource, which is R1, and waiting for R2. And P2 is holding one resource, which is R2, and waiting for R1.)",
+            "description": "The third necessary condition for deadlock. A process must be holding at least one resource and simultaneously waiting to acquire additional resources that are currently being held by other processes.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process"
+            ]
+        },
+        {
+            "id": 9,
+            "standard_term": "Circular Wait",
+            "colloquial_context": "'\u092f\u0939 \u090f\u0915 \u0924\u0930\u0939 \u0915\u093e \u0938\u0930\u094d\u0915\u0932 \u0939\u0948. \u0938\u0930\u094d\u0915\u0932 \u092e\u0940\u0928\u094d\u0938 \u0926\u0947\u092f\u0930 \u0907\u0938 \u0905 \u0932\u0942\u092a \u0907\u0928 \u0926\u093f\u0938.' (This is a kind of circle. Circle means there is a loop in this.) '\u092f\u0939\u093e \u092a\u0947 \u090f\u0915 \u0932\u0942\u092a \u0906\u092f\u093e' (Here a loop came).",
+            "description": "The fourth necessary condition for deadlock. A set of processes {P0, P1, ..., Pn} exists such that P0 is waiting for a resource held by P1, P1 is waiting for a resource held by P2, ..., Pn-1 is waiting for a resource held by Pn, and Pn is waiting for a resource held by P0, forming a closed chain of waiting processes.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process",
+                "Hold and Wait"
+            ]
+        }
+    ]
+}

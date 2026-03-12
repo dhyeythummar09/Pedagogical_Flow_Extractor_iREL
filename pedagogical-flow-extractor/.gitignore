@@ -1,0 +1,16 @@
+# Environment / secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Downloaded audio (large binary files)
+data/raw_audio/
+
+# Whisper model cache
+~/.cache/whisper/

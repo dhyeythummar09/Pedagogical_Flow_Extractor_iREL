@@ -1,0 +1,266 @@
+{
+    "topic": "deadlock_os",
+    "video_summary": "The video provides a comprehensive explanation of deadlock in computer science, starting with a general definition and progressing through various real-life and technical examples, finally detailing the four necessary and sufficient conditions for deadlock occurrence.",
+    "total_concepts": 9,
+    "recommended_sequence": [
+        {
+            "step": 1,
+            "concept_id": 2,
+            "concept": "Process",
+            "description": "An instance of a computer program that is being executed. Processes are the active entities in an operating system that request and use resources.",
+            "relative_importance": 7,
+            "prerequisites": [],
+            "unlocks": [
+                "Deadlock",
+                "Semaphore",
+                "Mutual Exclusion",
+                "No Preemption",
+                "Hold and Wait",
+                "Circular Wait"
+            ],
+            "reason": "'Process' is a root concept (no prerequisites) and must be understood first because it directly enables: Deadlock, Semaphore, Mutual Exclusion, No Preemption, Hold and Wait, Circular Wait."
+        },
+        {
+            "step": 2,
+            "concept_id": 3,
+            "concept": "Event",
+            "description": "A particular occurrence or state change that a process might be waiting for to continue its execution, often involving the availability or release of a resource.",
+            "relative_importance": 6,
+            "prerequisites": [],
+            "unlocks": [
+                "Deadlock"
+            ],
+            "reason": "'Event' is a root concept (no prerequisites) and must be understood first because it directly enables: Deadlock."
+        },
+        {
+            "step": 3,
+            "concept_id": 4,
+            "concept": "Resource",
+            "description": "Any tangible or intangible component (e.g., CPU, memory, I/O devices, files, semaphores) that a process needs to complete its task. Resources can be allocated to processes.",
+            "relative_importance": 8,
+            "prerequisites": [],
+            "unlocks": [
+                "Deadlock",
+                "Semaphore",
+                "Mutual Exclusion",
+                "No Preemption",
+                "Hold and Wait",
+                "Circular Wait"
+            ],
+            "reason": "'Resource' is a root concept (no prerequisites) and must be understood first because it directly enables: Deadlock, Semaphore, Mutual Exclusion, No Preemption, Hold and Wait, Circular Wait."
+        },
+        {
+            "step": 4,
+            "concept_id": 1,
+            "concept": "Deadlock",
+            "description": "A situation in concurrent processing where two or more processes are indefinitely blocked, waiting for each other to release the resources that they need. The instructor states that for deadlock to occur, four necessary and sufficient conditions must be met.",
+            "relative_importance": 10,
+            "prerequisites": [
+                "Process",
+                "Event",
+                "Resource"
+            ],
+            "unlocks": [],
+            "reason": "'Deadlock' builds upon Process, Event, Resource (importance 10/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 5,
+            "concept_id": 5,
+            "concept": "Semaphore",
+            "description": "A synchronization primitive used to control access to shared resources by multiple processes. It acts as a flag or counter to manage concurrent access.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "Process",
+                "Resource"
+            ],
+            "unlocks": [],
+            "reason": "'Semaphore' builds upon Process, Resource (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 6,
+            "concept_id": 6,
+            "concept": "Mutual Exclusion",
+            "description": "The first necessary condition for deadlock. It states that at least one resource must be held in a non-sharable mode; only one process at a time can use the resource. If another process requests that resource, it must be delayed until the resource has been released.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process"
+            ],
+            "unlocks": [],
+            "reason": "'Mutual Exclusion' builds upon Resource, Process (importance 9/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 7,
+            "concept_id": 7,
+            "concept": "No Preemption",
+            "description": "The second necessary condition for deadlock. A resource cannot be forcibly taken away from a process that is holding it. The resource must be released voluntarily by the process that is holding it, after the process has completed its task.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process"
+            ],
+            "unlocks": [],
+            "reason": "'No Preemption' builds upon Resource, Process (importance 9/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 8,
+            "concept_id": 8,
+            "concept": "Hold and Wait",
+            "description": "The third necessary condition for deadlock. A process must be holding at least one resource and simultaneously waiting to acquire additional resources that are currently being held by other processes.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process"
+            ],
+            "unlocks": [
+                "Circular Wait"
+            ],
+            "reason": "'Hold and Wait' builds upon Resource, Process (importance 9/10) and is required before studying: Circular Wait."
+        },
+        {
+            "step": 9,
+            "concept_id": 9,
+            "concept": "Circular Wait",
+            "description": "The fourth necessary condition for deadlock. A set of processes {P0, P1, ..., Pn} exists such that P0 is waiting for a resource held by P1, P1 is waiting for a resource held by P2, ..., Pn-1 is waiting for a resource held by Pn, and Pn is waiting for a resource held by P0, forming a closed chain of waiting processes.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "Resource",
+                "Process",
+                "Hold and Wait"
+            ],
+            "unlocks": [],
+            "reason": "'Circular Wait' builds upon Resource, Process, Hold and Wait (importance 9/10) and is a terminal concept in this learning path."
+        }
+    ],
+    "parallel_groups": [
+        {
+            "group": 1,
+            "level_label": "Foundation",
+            "concepts": [
+                {
+                    "concept_id": 2,
+                    "concept": "Process",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 3,
+                    "concept": "Event",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 4,
+                    "concept": "Resource",
+                    "relative_importance": 8
+                }
+            ],
+            "parallel_count": 3,
+            "note": "These are entry-point concepts — start here."
+        },
+        {
+            "group": 2,
+            "level_label": "Level 2",
+            "concepts": [
+                {
+                    "concept_id": 1,
+                    "concept": "Deadlock",
+                    "relative_importance": 10
+                },
+                {
+                    "concept_id": 5,
+                    "concept": "Semaphore",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 6,
+                    "concept": "Mutual Exclusion",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 7,
+                    "concept": "No Preemption",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 8,
+                    "concept": "Hold and Wait",
+                    "relative_importance": 9
+                }
+            ],
+            "parallel_count": 5,
+            "note": "All 5 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 3,
+            "level_label": "Level 3",
+            "concepts": [
+                {
+                    "concept_id": 9,
+                    "concept": "Circular Wait",
+                    "relative_importance": 9
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
+        }
+    ],
+    "components": [
+        {
+            "component_id": 1,
+            "concept_count": 9,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 2,
+                    "concept": "Process"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 3,
+                    "concept": "Event"
+                },
+                {
+                    "step": 3,
+                    "concept_id": 4,
+                    "concept": "Resource"
+                },
+                {
+                    "step": 4,
+                    "concept_id": 1,
+                    "concept": "Deadlock"
+                },
+                {
+                    "step": 5,
+                    "concept_id": 5,
+                    "concept": "Semaphore"
+                },
+                {
+                    "step": 6,
+                    "concept_id": 6,
+                    "concept": "Mutual Exclusion"
+                },
+                {
+                    "step": 7,
+                    "concept_id": 7,
+                    "concept": "No Preemption"
+                },
+                {
+                    "step": 8,
+                    "concept_id": 8,
+                    "concept": "Hold and Wait"
+                },
+                {
+                    "step": 9,
+                    "concept_id": 9,
+                    "concept": "Circular Wait"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "algorithm": "Kahn's BFS topological sort",
+        "handles_disconnected_components": true,
+        "total_parallel_groups": 3,
+        "total_components": 1
+    }
+}

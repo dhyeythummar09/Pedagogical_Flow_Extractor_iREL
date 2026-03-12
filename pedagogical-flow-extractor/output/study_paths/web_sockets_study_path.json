@@ -1,0 +1,297 @@
+{
+    "topic": "web_sockets",
+    "video_summary": "This video explains the critical difference between HTTP and WebSocket protocols, emphasizing the need for real-time data in applications like trading, and provides a foundational understanding of establishing and implementing WebSocket communication.",
+    "total_concepts": 10,
+    "recommended_sequence": [
+        {
+            "step": 1,
+            "concept_id": 1,
+            "concept": "Real-time Data",
+            "description": "Information that is delivered immediately as it is collected, reflecting the current state, crucial for applications like trading apps that require up-to-the-minute updates.",
+            "relative_importance": 8,
+            "prerequisites": [],
+            "unlocks": [
+                "Trading Applications"
+            ],
+            "reason": "'Real-time Data' is a root concept (no prerequisites) and must be understood first because it directly enables: Trading Applications."
+        },
+        {
+            "step": 2,
+            "concept_id": 3,
+            "concept": "HTTP (Hypertext Transfer Protocol)",
+            "description": "A stateless, request-response protocol primarily used for fetching web pages. Each client request generates a server response, but the connection is typically closed afterward. Described as 'like email' due to its turn-based communication.",
+            "relative_importance": 9,
+            "prerequisites": [],
+            "unlocks": [
+                "WebSocket Protocol",
+                "WebSocket Handshake (HTTP-based)"
+            ],
+            "reason": "'HTTP (Hypertext Transfer Protocol)' is a root concept (no prerequisites) and must be understood first because it directly enables: WebSocket Protocol, WebSocket Handshake (HTTP-based)."
+        },
+        {
+            "step": 3,
+            "concept_id": 8,
+            "concept": "Network Tab (Browser Developer Tools)",
+            "description": "A feature in web browser developer tools used by developers to monitor and inspect network activity, including HTTP requests and WebSocket connections, allowing verification of connection status and message flow.",
+            "relative_importance": 6,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Network Tab (Browser Developer Tools)' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 4,
+            "concept_id": 2,
+            "concept": "Trading Applications",
+            "description": "Software applications used for buying and selling financial instruments, which heavily rely on up-to-the-minute market data for effective decision-making.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "Real-time Data"
+            ],
+            "unlocks": [],
+            "reason": "'Trading Applications' builds upon Real-time Data (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 5,
+            "concept_id": 4,
+            "concept": "WebSocket Protocol",
+            "description": "A full-duplex communication protocol that provides persistent, bi-directional communication channels over a single TCP connection, allowing both client and server to send messages to each other at any time.",
+            "relative_importance": 10,
+            "prerequisites": [
+                "HTTP (Hypertext Transfer Protocol)"
+            ],
+            "unlocks": [
+                "WebSocket Handshake (HTTP-based)",
+                "Full-Duplex Communication",
+                "WebSocket Server Implementation",
+                "WebSocket Browser API"
+            ],
+            "reason": "'WebSocket Protocol' builds upon HTTP (Hypertext Transfer Protocol) (importance 10/10) and is required before studying: WebSocket Handshake (HTTP-based), Full-Duplex Communication, WebSocket Server Implementation, WebSocket Browser API."
+        },
+        {
+            "step": 6,
+            "concept_id": 5,
+            "concept": "WebSocket Handshake (HTTP-based)",
+            "description": "The initial process where a client sends a regular HTTP GET request with specific headers to a server to initiate a WebSocket connection. If the server supports WebSockets, it responds with an HTTP status code 101 (Switching Protocols), establishing the persistent WebSocket connection.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "HTTP (Hypertext Transfer Protocol)",
+                "WebSocket Protocol"
+            ],
+            "unlocks": [],
+            "reason": "'WebSocket Handshake (HTTP-based)' builds upon HTTP (Hypertext Transfer Protocol), WebSocket Protocol (importance 7/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 7,
+            "concept_id": 6,
+            "concept": "Full-Duplex Communication",
+            "description": "A communication system where both parties (client and server) can send and receive messages simultaneously and independently, without waiting for the other to finish. This is a key advantage of WebSockets over traditional HTTP.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "WebSocket Protocol"
+            ],
+            "unlocks": [],
+            "reason": "'Full-Duplex Communication' builds upon WebSocket Protocol (importance 8/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 8,
+            "concept_id": 7,
+            "concept": "WebSocket Server Implementation",
+            "description": "The process of writing server-side code (e.g., using Node.js with Express and a WebSocket library) to create a server that listens for and handles WebSocket connections, processes incoming messages, and sends outgoing messages to connected clients.",
+            "relative_importance": 9,
+            "prerequisites": [
+                "WebSocket Protocol"
+            ],
+            "unlocks": [
+                "WebSocket Events (e.g., 'connection', 'message')"
+            ],
+            "reason": "'WebSocket Server Implementation' builds upon WebSocket Protocol (importance 9/10) and is required before studying: WebSocket Events (e.g., 'connection', 'message')."
+        },
+        {
+            "step": 9,
+            "concept_id": 10,
+            "concept": "WebSocket Browser API",
+            "description": "A client-side JavaScript API available in web browsers that enables web pages to establish and interact with WebSocket servers, allowing them to send and receive messages asynchronously.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "WebSocket Protocol"
+            ],
+            "unlocks": [],
+            "reason": "'WebSocket Browser API' builds upon WebSocket Protocol (importance 7/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 10,
+            "concept_id": 9,
+            "concept": "WebSocket Events (e.g., 'connection', 'message')",
+            "description": "WebSocket communication relies on an event-driven model. Common events include 'connection' (when a client connects) and 'message' (when data is received from a connected client or sent to it), which trigger corresponding callback functions.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "WebSocket Server Implementation"
+            ],
+            "unlocks": [],
+            "reason": "'WebSocket Events (e.g., 'connection', 'message')' builds upon WebSocket Server Implementation (importance 7/10) and is a terminal concept in this learning path."
+        }
+    ],
+    "parallel_groups": [
+        {
+            "group": 1,
+            "level_label": "Foundation",
+            "concepts": [
+                {
+                    "concept_id": 1,
+                    "concept": "Real-time Data",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 3,
+                    "concept": "HTTP (Hypertext Transfer Protocol)",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 8,
+                    "concept": "Network Tab (Browser Developer Tools)",
+                    "relative_importance": 6
+                }
+            ],
+            "parallel_count": 3,
+            "note": "These are entry-point concepts — start here."
+        },
+        {
+            "group": 2,
+            "level_label": "Level 2",
+            "concepts": [
+                {
+                    "concept_id": 2,
+                    "concept": "Trading Applications",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 4,
+                    "concept": "WebSocket Protocol",
+                    "relative_importance": 10
+                }
+            ],
+            "parallel_count": 2,
+            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 3,
+            "level_label": "Level 3",
+            "concepts": [
+                {
+                    "concept_id": 5,
+                    "concept": "WebSocket Handshake (HTTP-based)",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 6,
+                    "concept": "Full-Duplex Communication",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 7,
+                    "concept": "WebSocket Server Implementation",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 10,
+                    "concept": "WebSocket Browser API",
+                    "relative_importance": 7
+                }
+            ],
+            "parallel_count": 4,
+            "note": "All 4 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 4,
+            "level_label": "Level 4",
+            "concepts": [
+                {
+                    "concept_id": 9,
+                    "concept": "WebSocket Events (e.g., 'connection', 'message')",
+                    "relative_importance": 7
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
+        }
+    ],
+    "components": [
+        {
+            "component_id": 1,
+            "concept_count": 2,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 1,
+                    "concept": "Real-time Data"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 2,
+                    "concept": "Trading Applications"
+                }
+            ]
+        },
+        {
+            "component_id": 2,
+            "concept_count": 7,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 3,
+                    "concept": "HTTP (Hypertext Transfer Protocol)"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 4,
+                    "concept": "WebSocket Protocol"
+                },
+                {
+                    "step": 3,
+                    "concept_id": 5,
+                    "concept": "WebSocket Handshake (HTTP-based)"
+                },
+                {
+                    "step": 4,
+                    "concept_id": 6,
+                    "concept": "Full-Duplex Communication"
+                },
+                {
+                    "step": 5,
+                    "concept_id": 7,
+                    "concept": "WebSocket Server Implementation"
+                },
+                {
+                    "step": 6,
+                    "concept_id": 10,
+                    "concept": "WebSocket Browser API"
+                },
+                {
+                    "step": 7,
+                    "concept_id": 9,
+                    "concept": "WebSocket Events (e.g., 'connection', 'message')"
+                }
+            ]
+        },
+        {
+            "component_id": 3,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 8,
+                    "concept": "Network Tab (Browser Developer Tools)"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "algorithm": "Kahn's BFS topological sort",
+        "handles_disconnected_components": true,
+        "total_parallel_groups": 4,
+        "total_components": 3
+    }
+}

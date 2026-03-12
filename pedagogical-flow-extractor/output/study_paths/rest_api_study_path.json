@@ -1,0 +1,295 @@
+{
+    "topic": "rest_api",
+    "video_summary": "This video introduces RESTful API architecture and its best practices, distinguishing between client-side and server-side rendering while explaining common HTTP methods (GET, POST, DELETE) for data operations, emphasizing SSR for the tutorial series.",
+    "total_concepts": 10,
+    "recommended_sequence": [
+        {
+            "step": 1,
+            "concept_id": 1,
+            "concept": "RESTful API Architecture",
+            "description": "An architectural style for designing networked applications, characterized by being stateless, client-server, cacheable, layered, and having a uniform interface, often following specific best practices.",
+            "relative_importance": 8,
+            "prerequisites": [],
+            "unlocks": [
+                "API Best Practices"
+            ],
+            "reason": "'RESTful API Architecture' is a root concept (no prerequisites) and must be understood first because it directly enables: API Best Practices."
+        },
+        {
+            "step": 2,
+            "concept_id": 5,
+            "concept": "API Endpoints (Routes)",
+            "description": "Specific URLs that an API exposes, allowing clients to interact with particular resources or functionalities on the server.",
+            "relative_importance": 6,
+            "prerequisites": [],
+            "unlocks": [
+                "HTTP GET Method",
+                "HTTP POST Method",
+                "HTTP DELETE Method",
+                "Data Retrieval (Read Operation)",
+                "Data Update Operation"
+            ],
+            "reason": "'API Endpoints (Routes)' is a root concept (no prerequisites) and must be understood first because it directly enables: HTTP GET Method, HTTP POST Method, HTTP DELETE Method, Data Retrieval (Read Operation), Data Update Operation."
+        },
+        {
+            "step": 3,
+            "concept_id": 6,
+            "concept": "Client-Side Rendering (CSR)",
+            "description": "A web rendering approach where the browser downloads a minimal HTML page and JavaScript, which then renders the full content dynamically in the user's browser.",
+            "relative_importance": 5,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Client-Side Rendering (CSR)' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 4,
+            "concept_id": 7,
+            "concept": "Server-Side Rendering (SSR)",
+            "description": "A web rendering approach where the server processes the request and sends a fully rendered HTML page to the client, which the browser can then display immediately.",
+            "relative_importance": 8,
+            "prerequisites": [],
+            "unlocks": [],
+            "reason": "'Server-Side Rendering (SSR)' is an isolated foundational concept with no prerequisites and no dependents."
+        },
+        {
+            "step": 5,
+            "concept_id": 8,
+            "concept": "API Best Practices",
+            "description": "Guidelines and conventions for designing robust, scalable, and maintainable APIs, often related to consistent use of HTTP methods, status codes, and URL structures.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "RESTful API Architecture"
+            ],
+            "unlocks": [],
+            "reason": "'API Best Practices' builds upon RESTful API Architecture (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 6,
+            "concept_id": 2,
+            "concept": "HTTP GET Method",
+            "description": "An HTTP method used to request data from a specified resource. GET requests should only retrieve data and have no other effect on the data.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "API Endpoints (Routes)"
+            ],
+            "unlocks": [
+                "Data Retrieval (Read Operation)"
+            ],
+            "reason": "'HTTP GET Method' builds upon API Endpoints (Routes) (importance 7/10) and is required before studying: Data Retrieval (Read Operation)."
+        },
+        {
+            "step": 7,
+            "concept_id": 3,
+            "concept": "HTTP POST Method",
+            "description": "An HTTP method used to send data to a server to create or update a resource. It often results in a change in state or side effects on the server.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "API Endpoints (Routes)"
+            ],
+            "unlocks": [
+                "Data Update Operation"
+            ],
+            "reason": "'HTTP POST Method' builds upon API Endpoints (Routes) (importance 7/10) and is required before studying: Data Update Operation."
+        },
+        {
+            "step": 8,
+            "concept_id": 4,
+            "concept": "HTTP DELETE Method",
+            "description": "An HTTP method used to request that a specified resource be deleted.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "API Endpoints (Routes)"
+            ],
+            "unlocks": [],
+            "reason": "'HTTP DELETE Method' builds upon API Endpoints (Routes) (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 9,
+            "concept_id": 9,
+            "concept": "Data Retrieval (Read Operation)",
+            "description": "The process of fetching existing data from a server or database, typically performed using the HTTP GET method.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "HTTP GET Method",
+                "API Endpoints (Routes)"
+            ],
+            "unlocks": [],
+            "reason": "'Data Retrieval (Read Operation)' builds upon HTTP GET Method, API Endpoints (Routes) (importance 5/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 10,
+            "concept_id": 10,
+            "concept": "Data Update Operation",
+            "description": "The process of modifying existing data on a server or database, often performed using HTTP POST or PUT methods.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "HTTP POST Method",
+                "API Endpoints (Routes)"
+            ],
+            "unlocks": [],
+            "reason": "'Data Update Operation' builds upon HTTP POST Method, API Endpoints (Routes) (importance 5/10) and is a terminal concept in this learning path."
+        }
+    ],
+    "parallel_groups": [
+        {
+            "group": 1,
+            "level_label": "Foundation",
+            "concepts": [
+                {
+                    "concept_id": 1,
+                    "concept": "RESTful API Architecture",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 5,
+                    "concept": "API Endpoints (Routes)",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 6,
+                    "concept": "Client-Side Rendering (CSR)",
+                    "relative_importance": 5
+                },
+                {
+                    "concept_id": 7,
+                    "concept": "Server-Side Rendering (SSR)",
+                    "relative_importance": 8
+                }
+            ],
+            "parallel_count": 4,
+            "note": "These are entry-point concepts — start here."
+        },
+        {
+            "group": 2,
+            "level_label": "Level 2",
+            "concepts": [
+                {
+                    "concept_id": 8,
+                    "concept": "API Best Practices",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 2,
+                    "concept": "HTTP GET Method",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 3,
+                    "concept": "HTTP POST Method",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 4,
+                    "concept": "HTTP DELETE Method",
+                    "relative_importance": 6
+                }
+            ],
+            "parallel_count": 4,
+            "note": "All 4 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 3,
+            "level_label": "Level 3",
+            "concepts": [
+                {
+                    "concept_id": 9,
+                    "concept": "Data Retrieval (Read Operation)",
+                    "relative_importance": 5
+                },
+                {
+                    "concept_id": 10,
+                    "concept": "Data Update Operation",
+                    "relative_importance": 5
+                }
+            ],
+            "parallel_count": 2,
+            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+        }
+    ],
+    "components": [
+        {
+            "component_id": 1,
+            "concept_count": 2,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 1,
+                    "concept": "RESTful API Architecture"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 8,
+                    "concept": "API Best Practices"
+                }
+            ]
+        },
+        {
+            "component_id": 2,
+            "concept_count": 6,
+            "is_isolated": false,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 5,
+                    "concept": "API Endpoints (Routes)"
+                },
+                {
+                    "step": 2,
+                    "concept_id": 2,
+                    "concept": "HTTP GET Method"
+                },
+                {
+                    "step": 3,
+                    "concept_id": 3,
+                    "concept": "HTTP POST Method"
+                },
+                {
+                    "step": 4,
+                    "concept_id": 4,
+                    "concept": "HTTP DELETE Method"
+                },
+                {
+                    "step": 5,
+                    "concept_id": 9,
+                    "concept": "Data Retrieval (Read Operation)"
+                },
+                {
+                    "step": 6,
+                    "concept_id": 10,
+                    "concept": "Data Update Operation"
+                }
+            ]
+        },
+        {
+            "component_id": 3,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 6,
+                    "concept": "Client-Side Rendering (CSR)"
+                }
+            ]
+        },
+        {
+            "component_id": 4,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 7,
+                    "concept": "Server-Side Rendering (SSR)"
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "algorithm": "Kahn's BFS topological sort",
+        "handles_disconnected_components": true,
+        "total_parallel_groups": 3,
+        "total_components": 4
+    }
+}
