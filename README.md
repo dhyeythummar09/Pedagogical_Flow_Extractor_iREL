@@ -17,8 +17,9 @@ An end-to-end pipeline that ingests YouTube lecture videos, transcribes them wit
    - [Phase 5 — Visualization](#phase-5--visualization)
    - [Phase 6 — Automatic Study Path Generator](#phase-6--automatic-study-path-generator)
 4. [Output Structure & Rationale](#output-structure--rationale)
-5. [Setup & Usage](#setup--usage)
-6. [Dependencies](#dependencies)
+5. [Pipeline Demo](#pipeline-demo)
+6. [Setup & Usage](#setup--usage)
+7. [Dependencies](#dependencies)
 
 ---
 
@@ -200,6 +201,15 @@ output/
 **Why separate JSON + HTML?** The JSON is the authoritative data artifact — it can be consumed by downstream tools, search indexes, or future LLM prompts without re-running the expensive extraction step. The HTML is a human-readable, self-contained rendering of that data. Keeping them separate means either can be regenerated independently.
 
 **Why JSON over a database?** For a five-video research task, flat JSON files provide zero-dependency portability — any machine with Python and the repo can load and inspect the data without a running database server.
+
+---
+
+## Pipeline Demo
+
+A full end-to-end run of the pipeline on the **Deadlock (OS)** lecture — covering all 6 phases from audio download through to the interactive knowledge graph and study path output.
+
+▶ **[Watch Demo on Google Drive](https://drive.google.com/file/d/1_rzqOlMasLbmv-4n8Y4SYwEGXMNGxHQT/view?usp=sharing)**
+
 
 ---
 
