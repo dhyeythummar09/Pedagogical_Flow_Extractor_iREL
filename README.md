@@ -142,8 +142,7 @@ Builds an interactive HTML graph with a professional UI injected as a post-proce
 |---|---|
 | **Red nodes** — Leaf / Foundational | No prerequisites; entry points for the learner |
 | **Blue nodes** — Core / Advanced | Have prerequisites; build on earlier concepts |
-| **Node size** | Proportional to `relative_importance` (1–10); reflects how much teaching time the instructor devoted to the concept |
-| **Edge width** | Proportional to the importance of the destination concept; thicker = more critical prerequisite path |
+| **Node size** | Proportional to `relative_importance` (1–10) |
 
 **Layout:** Hierarchical Up-Down (`direction: "UD"`, `sortMethod: "directed"`) so foundational concepts appear at the top and terminal concepts at the bottom, mirroring a natural learning progression. `avoidOverlap: 1` and `springLength: 300` prevent node crowding. The graph is fully stabilised before display so it never jumps on load.
 
