@@ -1,91 +1,152 @@
 {
     "topic": "nginx",
-    "video_summary": "The video introduces Nginx, explaining its core benefits such as load balancing, HTTP caching, and acting as a reverse proxy, demonstrating its role in handling user requests and briefly touching upon its practical deployment using Docker on Ubuntu.",
-    "total_concepts": 7,
+    "video_summary": "This video introduces Nginx, explaining its core functions as a powerful web server, reverse proxy, load balancer, and HTTP cache, by first differentiating between forward and reverse proxies and discussing its role in various web architectures.",
+    "total_concepts": 12,
     "recommended_sequence": [
         {
             "step": 1,
-            "concept_id": 2,
-            "concept": "Load Balancing",
-            "description": "The process of distributing network traffic across multiple servers to ensure no single server is overloaded, improving responsiveness and availability.",
-            "relative_importance": 7,
+            "concept_id": 1,
+            "concept": "Nginx",
+            "description": "A powerful, open-source web server, reverse proxy, load balancer, HTTP cache, and API gateway that uses a non-threaded, event-driven architecture to handle high concurrency and traffic efficiently.",
+            "relative_importance": 10,
             "prerequisites": [],
-            "unlocks": [
-                "Nginx"
-            ],
-            "reason": "'Load Balancing' is a root concept (no prerequisites) and must be understood first because it directly enables: Nginx."
+            "unlocks": [],
+            "reason": "'Nginx' is an isolated foundational concept with no prerequisites and no dependents."
         },
         {
             "step": 2,
-            "concept_id": 3,
-            "concept": "HTTP Caching",
-            "description": "Storing copies of frequently accessed web content (like images or pages) closer to the user or on an intermediary server (like Nginx) to reduce server load and speed up subsequent requests.",
-            "relative_importance": 8,
+            "concept_id": 2,
+            "concept": "HTTP Connection",
+            "description": "A direct communication link established between a client (e.g., web browser) and a web server over the HTTP protocol to exchange data.",
+            "relative_importance": 4,
             "prerequisites": [],
             "unlocks": [
-                "Nginx"
+                "Proxy Server",
+                "HTTP Caching",
+                "Serving Static Files",
+                "SSL Certificate"
             ],
-            "reason": "'HTTP Caching' is a root concept (no prerequisites) and must be understood first because it directly enables: Nginx."
+            "reason": "'HTTP Connection' is a root concept (no prerequisites) and must be understood first because it directly enables: Proxy Server, HTTP Caching, Serving Static Files, SSL Certificate."
         },
         {
             "step": 3,
-            "concept_id": 4,
-            "concept": "Reverse Proxy",
-            "description": "A server that sits in front of one or more web servers and forwards client requests to those web servers. It enhances security, performance, and reliability.",
+            "concept_id": 8,
+            "concept": "API Gateway",
+            "description": "A server that acts as the single entry point for a set of APIs. It handles routing requests to appropriate backend services, API composition, and other API management tasks. Nginx can be configured to act as an API Gateway.",
             "relative_importance": 7,
             "prerequisites": [],
-            "unlocks": [
-                "Nginx"
-            ],
-            "reason": "'Reverse Proxy' is a root concept (no prerequisites) and must be understood first because it directly enables: Nginx."
+            "unlocks": [],
+            "reason": "'API Gateway' is an isolated foundational concept with no prerequisites and no dependents."
         },
         {
             "step": 4,
-            "concept_id": 5,
-            "concept": "Docker",
-            "description": "A platform for developing, shipping, and running applications in 'containers', which are lightweight, standalone, executable packages that include everything needed to run a piece of software.",
-            "relative_importance": 6,
+            "concept_id": 11,
+            "concept": "Basic Linux Commands",
+            "description": "Fundamental command-line operations in Linux (e.g., file system navigation, text editing with Vim, managing processes) that are essential for configuring and managing servers like Nginx.",
+            "relative_importance": 4,
             "prerequisites": [],
-            "unlocks": [
-                "Docker Image"
-            ],
-            "reason": "'Docker' is a root concept (no prerequisites) and must be understood first because it directly enables: Docker Image."
+            "unlocks": [],
+            "reason": "'Basic Linux Commands' is an isolated foundational concept with no prerequisites and no dependents."
         },
         {
             "step": 5,
-            "concept_id": 7,
-            "concept": "Ubuntu",
-            "description": "A popular open-source Linux operating system, often used for server deployments and development environments.",
-            "relative_importance": 3,
+            "concept_id": 12,
+            "concept": "AWS EC2 Instance",
+            "description": "A virtual server (instance) provided by Amazon Web Services' Elastic Compute Cloud (EC2) service, used for deploying and hosting applications in a scalable cloud environment. An AWS account is a prerequisite for the course.",
+            "relative_importance": 4,
             "prerequisites": [],
             "unlocks": [],
-            "reason": "'Ubuntu' is an isolated foundational concept with no prerequisites and no dependents."
+            "reason": "'AWS EC2 Instance' is an isolated foundational concept with no prerequisites and no dependents."
         },
         {
             "step": 6,
-            "concept_id": 1,
-            "concept": "Nginx",
-            "description": "A powerful open-source web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache. It's known for its high performance and low resource consumption.",
-            "relative_importance": 10,
+            "concept_id": 3,
+            "concept": "Proxy Server",
+            "description": "An intermediary server that acts on behalf of a client to request resources from another server. It forwards client requests and receives responses for them, exemplified by a VPN.",
+            "relative_importance": 6,
             "prerequisites": [
-                "Load Balancing",
-                "HTTP Caching",
-                "Reverse Proxy"
+                "HTTP Connection"
             ],
-            "unlocks": [],
-            "reason": "'Nginx' builds upon Load Balancing, HTTP Caching, Reverse Proxy (importance 10/10) and is a terminal concept in this learning path."
+            "unlocks": [
+                "Forward Proxy"
+            ],
+            "reason": "'Proxy Server' builds upon HTTP Connection (importance 6/10) and is required before studying: Forward Proxy."
         },
         {
             "step": 7,
-            "concept_id": 6,
-            "concept": "Docker Image",
-            "description": "A read-only template with instructions for creating a Docker container. It includes the application, libraries, dependencies, and configurations required to run it.",
-            "relative_importance": 5,
+            "concept_id": 7,
+            "concept": "HTTP Caching",
+            "description": "Storing copies of frequently requested web content (e.g., images, files) either on the client side or on intermediary servers (like Nginx) to reduce latency and server load for subsequent requests.",
+            "relative_importance": 8,
             "prerequisites": [
-                "Docker"
+                "HTTP Connection"
             ],
             "unlocks": [],
-            "reason": "'Docker Image' builds upon Docker (importance 5/10) and is a terminal concept in this learning path."
+            "reason": "'HTTP Caching' builds upon HTTP Connection (importance 8/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 8,
+            "concept_id": 9,
+            "concept": "Serving Static Files",
+            "description": "Delivering unchanging content (e.g., HTML, CSS, JavaScript, images, videos) directly from a web server's file system to clients. Nginx is highly efficient at this, often with built-in caching capabilities.",
+            "relative_importance": 6,
+            "prerequisites": [
+                "HTTP Connection"
+            ],
+            "unlocks": [],
+            "reason": "'Serving Static Files' builds upon HTTP Connection (importance 6/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 9,
+            "concept_id": 10,
+            "concept": "SSL Certificate",
+            "description": "A digital certificate that authenticates the identity of a website and encrypts communication between a web browser and a server using SSL/TLS technology, ensuring secure data transmission.",
+            "relative_importance": 5,
+            "prerequisites": [
+                "HTTP Connection"
+            ],
+            "unlocks": [],
+            "reason": "'SSL Certificate' builds upon HTTP Connection (importance 5/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 10,
+            "concept_id": 4,
+            "concept": "Forward Proxy",
+            "description": "A type of proxy server where clients explicitly route their requests through the proxy to access external servers. The destination server sees the proxy's IP, not the client's, often used for client-side privacy or access control.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "Proxy Server"
+            ],
+            "unlocks": [
+                "Reverse Proxy"
+            ],
+            "reason": "'Forward Proxy' builds upon Proxy Server (importance 7/10) and is required before studying: Reverse Proxy."
+        },
+        {
+            "step": 11,
+            "concept_id": 5,
+            "concept": "Reverse Proxy",
+            "description": "A type of proxy server that sits in front of one or more web servers, intercepting client requests. It forwards the requests to the appropriate backend server and delivers the server's response back to the client, effectively hiding the backend servers. Nginx is a popular reverse proxy.",
+            "relative_importance": 10,
+            "prerequisites": [
+                "Forward Proxy"
+            ],
+            "unlocks": [
+                "Load Balancing"
+            ],
+            "reason": "'Reverse Proxy' builds upon Forward Proxy (importance 10/10) and is required before studying: Load Balancing."
+        },
+        {
+            "step": 12,
+            "concept_id": 6,
+            "concept": "Load Balancing",
+            "description": "The process of distributing incoming network traffic across multiple servers to ensure optimal resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. It can use algorithms like round robin.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "Reverse Proxy"
+            ],
+            "unlocks": [],
+            "reason": "'Load Balancing' builds upon Reverse Proxy (importance 8/10) and is a terminal concept in this learning path."
         }
     ],
     "parallel_groups": [
@@ -94,29 +155,29 @@
             "level_label": "Foundation",
             "concepts": [
                 {
+                    "concept_id": 1,
+                    "concept": "Nginx",
+                    "relative_importance": 10
+                },
+                {
                     "concept_id": 2,
-                    "concept": "Load Balancing",
+                    "concept": "HTTP Connection",
+                    "relative_importance": 4
+                },
+                {
+                    "concept_id": 8,
+                    "concept": "API Gateway",
                     "relative_importance": 7
                 },
                 {
-                    "concept_id": 3,
-                    "concept": "HTTP Caching",
-                    "relative_importance": 8
+                    "concept_id": 11,
+                    "concept": "Basic Linux Commands",
+                    "relative_importance": 4
                 },
                 {
-                    "concept_id": 4,
-                    "concept": "Reverse Proxy",
-                    "relative_importance": 7
-                },
-                {
-                    "concept_id": 5,
-                    "concept": "Docker",
-                    "relative_importance": 6
-                },
-                {
-                    "concept_id": 7,
-                    "concept": "Ubuntu",
-                    "relative_importance": 3
+                    "concept_id": 12,
+                    "concept": "AWS EC2 Instance",
+                    "relative_importance": 4
                 }
             ],
             "parallel_count": 5,
@@ -127,43 +188,77 @@
             "level_label": "Level 2",
             "concepts": [
                 {
-                    "concept_id": 1,
-                    "concept": "Nginx",
-                    "relative_importance": 10
+                    "concept_id": 3,
+                    "concept": "Proxy Server",
+                    "relative_importance": 6
                 },
                 {
-                    "concept_id": 6,
-                    "concept": "Docker Image",
+                    "concept_id": 7,
+                    "concept": "HTTP Caching",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 9,
+                    "concept": "Serving Static Files",
+                    "relative_importance": 6
+                },
+                {
+                    "concept_id": 10,
+                    "concept": "SSL Certificate",
                     "relative_importance": 5
                 }
             ],
-            "parallel_count": 2,
-            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+            "parallel_count": 4,
+            "note": "All 4 concept(s) at this level can be studied in parallel once the previous level is complete."
+        },
+        {
+            "group": 3,
+            "level_label": "Level 3",
+            "concepts": [
+                {
+                    "concept_id": 4,
+                    "concept": "Forward Proxy",
+                    "relative_importance": 7
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
+        },
+        {
+            "group": 4,
+            "level_label": "Level 4",
+            "concepts": [
+                {
+                    "concept_id": 5,
+                    "concept": "Reverse Proxy",
+                    "relative_importance": 10
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
+        },
+        {
+            "group": 5,
+            "level_label": "Level 5",
+            "concepts": [
+                {
+                    "concept_id": 6,
+                    "concept": "Load Balancing",
+                    "relative_importance": 8
+                }
+            ],
+            "parallel_count": 1,
+            "note": "Study after completing the previous level."
         }
     ],
     "components": [
         {
             "component_id": 1,
-            "concept_count": 4,
-            "is_isolated": false,
+            "concept_count": 1,
+            "is_isolated": true,
             "sequence": [
                 {
                     "step": 1,
-                    "concept_id": 2,
-                    "concept": "Load Balancing"
-                },
-                {
-                    "step": 2,
-                    "concept_id": 3,
-                    "concept": "HTTP Caching"
-                },
-                {
-                    "step": 3,
-                    "concept_id": 4,
-                    "concept": "Reverse Proxy"
-                },
-                {
-                    "step": 4,
                     "concept_id": 1,
                     "concept": "Nginx"
                 }
@@ -171,18 +266,48 @@
         },
         {
             "component_id": 2,
-            "concept_count": 2,
+            "concept_count": 8,
             "is_isolated": false,
             "sequence": [
                 {
                     "step": 1,
-                    "concept_id": 5,
-                    "concept": "Docker"
+                    "concept_id": 2,
+                    "concept": "HTTP Connection"
                 },
                 {
                     "step": 2,
+                    "concept_id": 3,
+                    "concept": "Proxy Server"
+                },
+                {
+                    "step": 3,
+                    "concept_id": 7,
+                    "concept": "HTTP Caching"
+                },
+                {
+                    "step": 4,
+                    "concept_id": 9,
+                    "concept": "Serving Static Files"
+                },
+                {
+                    "step": 5,
+                    "concept_id": 10,
+                    "concept": "SSL Certificate"
+                },
+                {
+                    "step": 6,
+                    "concept_id": 4,
+                    "concept": "Forward Proxy"
+                },
+                {
+                    "step": 7,
+                    "concept_id": 5,
+                    "concept": "Reverse Proxy"
+                },
+                {
+                    "step": 8,
                     "concept_id": 6,
-                    "concept": "Docker Image"
+                    "concept": "Load Balancing"
                 }
             ]
         },
@@ -193,8 +318,32 @@
             "sequence": [
                 {
                     "step": 1,
-                    "concept_id": 7,
-                    "concept": "Ubuntu"
+                    "concept_id": 8,
+                    "concept": "API Gateway"
+                }
+            ]
+        },
+        {
+            "component_id": 4,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 11,
+                    "concept": "Basic Linux Commands"
+                }
+            ]
+        },
+        {
+            "component_id": 5,
+            "concept_count": 1,
+            "is_isolated": true,
+            "sequence": [
+                {
+                    "step": 1,
+                    "concept_id": 12,
+                    "concept": "AWS EC2 Instance"
                 }
             ]
         }
@@ -202,7 +351,7 @@
     "metadata": {
         "algorithm": "Kahn's BFS topological sort",
         "handles_disconnected_components": true,
-        "total_parallel_groups": 2,
-        "total_components": 3
+        "total_parallel_groups": 5,
+        "total_components": 5
     }
 }

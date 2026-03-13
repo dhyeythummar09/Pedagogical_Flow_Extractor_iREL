@@ -1,99 +1,123 @@
 {
-    "video_summary": "This video explains the critical difference between HTTP and WebSocket protocols, emphasizing the need for real-time data in applications like trading, and provides a foundational understanding of establishing and implementing WebSocket communication.",
+    "video_summary": "This video provides an introduction to Web Sockets, explaining their core functionality, contrasting them with HTTP, Polling, and Server-Sent Events for real-time applications, and demonstrating the setup of a basic Web Socket server using Node.js.",
     "concepts": [
         {
             "id": 1,
-            "standard_term": "Real-time Data",
-            "colloquial_context": "\u0930\u093f\u092f\u0932 \u091f\u093e\u0907\u092e \u0921\u0947\u091f\u093e, \u090f\u0902\u091f\u093f\u0915\u094d\u0938 \u0915\u0940 \u0935\u0948\u0932\u094d\u092f\u0942 \u091a\u0947\u0902\u091c \u0939\u094b\u0917\u0940, \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u091a\u0932 \u0930\u0939\u093e \u0925\u093e",
-            "description": "Information that is delivered immediately as it is collected, reflecting the current state, crucial for applications like trading apps that require up-to-the-minute updates.",
-            "relative_importance": 8,
+            "standard_term": "Web Sockets Overview",
+            "colloquial_context": "web sockets \u0915\u0947 overview \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u092c\u093e\u0924 \u0915\u0930\u0947 \u0939\u0941\u0917\u0947; \u090f\u0915 connection \u0905\u0938\u094d\u0924\u093e\u092c\u0932\u093f\u0936 \u0939\u094b \u0917\u092f\u093e\u0964 \u0924\u094b \u092b\u093f\u0930 client \u0914\u0930 server \u0915\u092d\u0940 \u092d\u0940 \u090f\u0915 \u0926\u0942\u0938\u0930\u0947 \u0915\u094b data send \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964",
+            "description": "Web Sockets provide a persistent, full-duplex communication channel over a single TCP connection, allowing both client and server to send data at any time without repeatedly initiating new requests.",
+            "relative_importance": 9,
             "prerequisites": []
         },
         {
             "id": 2,
-            "standard_term": "Trading Applications",
-            "colloquial_context": "\u091f\u094d\u0930\u0947\u0921\u093f\u0902\u0917 \u0906\u092a\u094d\u0938",
-            "description": "Software applications used for buying and selling financial instruments, which heavily rely on up-to-the-minute market data for effective decision-making.",
+            "standard_term": "Real-time Applications",
+            "colloquial_context": "\u092d\u0939\u0941\u0924 \u0938\u093e\u0930\u0947 \u0926\u093f\u092b\u094d\u0930\u0947\u0902\u0921 \u0926\u093f\u092b\u094d\u0930\u0947\u0902\u0921 \u091f\u094d\u0930\u0947\u0921\u093f\u0902\u0917 \u0906\u092a\u0938; real time data \u092c\u0930 \u092c\u0947\u091c\u093c \u0930\u0939\u0947 \u0939\u094b\u0924\u0947 \u0939\u0948\u0902; market \u0915\u0947 \u0905\u0902\u0926\u0930 index \u091c\u094b \u0939\u0948 \u0909\u0938\u0915\u0940 value change \u0939\u094b\u0917\u0940; \u092e\u0947\u0938\u0947\u091c\u093f\u0902\u0917 \u0906\u092a\u0938; \u0924\u0947\u0932\u0947\u0917\u094d\u0930\u093e\u092e \u092f\u093e \u0935\u091f\u094d\u0938\u093e\u092a \u0915\u093e \u0905\u0917\u0930 \u0939\u092e \u0935\u0947\u092c \u0906\u092a \u0935\u0930\u094d\u091c\u0928 \u092c\u0928\u093e\u090f\u0902",
+            "description": "Applications that require instantaneous data updates, such as live trading platforms, instant messaging services, live dashboards, or notification systems, where timely information exchange is critical.",
+            "relative_importance": 7,
+            "prerequisites": []
+        },
+        {
+            "id": 3,
+            "standard_term": "Verifying Web Socket Connection (Browser DevTools)",
+            "colloquial_context": "\u0907\u0938\u0915\u094b\u0902 \u0935\u0947\u0930\u093f\u092b\u093e\u0908 \u0915\u0947 \u0938\u0947 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902; \u0928\u0947\u091f\u094d\u0935\u0949\u0915 \u091f\u093e\u092c \u092e\u0947\u0902 \u0926\u093f\u0915\u0928\u0947 \u0932\u0917 \u091c\u093e\u090f\u0917\u093e; \u092e\u0947\u0938\u0947\u091c\u0947\u0902\u091c \u0915\u093e \u0907\u0938\u094d\u091a\u0947\u0902\u091c \u092e\u0941\u091d\u0947 \u0926\u093f\u0916\u093e\u0908 \u0926\u0947 \u0930\u0939\u093e \u0939\u0948\u0902; \u0907\u0938\u094d\u092a\u0947\u0915 \u0915\u0930 \u0915\u0947 \u0915\u093f\u0938\u0940 \u092d\u0940 \u0935\u0947\u092a \u0938\u093e\u0907\u091f \u092a\u0930 \u0915\u093f \u0935\u0939\u093e\u0902 \u092a\u0930 \u0915\u094b\u0908 \u0935\u0947\u092a \u0938\u0949\u0915\u093f\u091f \u0915\u0928\u0947\u0915\u094d\u0937\u093f\u0928 \u0907\u0938\u094d\u091f\u093e\u092c\u0932\u093f\u0936 \u0939\u0941\u0906 \u092f\u0939 \u0928\u0939\u0940\u0902.",
+            "description": "The practical method of using the browser's developer tools (specifically the Network tab and WebSocket filter) to inspect active Web Socket connections and the messages exchanged over them.",
+            "relative_importance": 8,
+            "prerequisites": [
+                1
+            ]
+        },
+        {
+            "id": 4,
+            "standard_term": "HTTP Request-Response Model",
+            "colloquial_context": "Http \u092a\u094d\u0930\u0935\u093e\u091c\u093c\u093e\u090f\u0917\u093e \u0924\u094b \u0939\u092e\u093e\u0930\u0947 \u0932\u093e\u0907\u090f \u092a\u094d\u0930\u094b\u091f\u094b\u0915\u093e\u0932 \u092a\u094d\u0930\u0935\u093e\u091c\u093c\u093e\u090f\u0917\u093e. \u091c\u093f\u0938\u092e\u0947\u0902 \u0905\u0917\u0930 \u0915\u094b\u0908 \u092d\u0940 \u0905\u0926\u093f\u0936\u094d\u091f\u0928\u0932 \u0921\u0947\u091f\u093e \u092d\u0947\u091c\u0928\u093e \u0939\u094b\u0924\u093e \u0939\u0948\u0902 \u0924\u094b \u0935\u094b \u0939\u0930 \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u0915\u0947 \u0938\u093e\u0925 \u0939\u092e\u0947\u0902 \u092c\u093e\u0930 \u092c\u093e\u0930 \u092d\u0947\u091c\u0928\u093e \u092a\u0921\u093c\u0924\u093e \u0939\u0948\u0902 \u0907\u0928 \u0924\u094b \u092b\u0949\u092e \u0906\u092a \u0939\u0947\u0921\u093c\u0930\u094d\u0938.",
+            "description": "A stateless communication protocol where the client initiates a request, and the server sends a response; data is typically sent in headers with each new request, and the connection closes after the response.",
+            "relative_importance": 8,
+            "prerequisites": []
+        },
+        {
+            "id": 5,
+            "standard_term": "Limitations of HTTP for Real-time Systems",
+            "colloquial_context": "\u092a\u094d\u0930\u094b\u092c\u094d\u0932\u0947\u092e \u0939\u0940 \u0939\u0940 \u0924\u092c \u0906\u0924\u0940 \u0939\u0948\u0902 \u091c\u092c \u0939\u092e \u0930\u093f\u092f\u0932 \u091f\u093e\u0907\u092e \u0938\u093f\u0938\u094d\u091f\u092e\u094d\u0938 \u0915\u0940 \u092c\u093e\u0924 \u0915\u0930\u0924\u0947 \u0939\u0948\u0902; Http \u0915\u0947 \u0924\u0942 \u092c\u093e\u0930 \u092c\u093e\u0930 \u092c\u093e\u0930 \u092c\u093e\u0930 \u092c\u093e\u0930 \u092c\u093e\u0930 \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u092d\u0940\u0936 \u0928\u093f \u092a\u0921\u093c\u0947\u0917\u0940; \u091f\u093e\u0907\u092e \u0906\u0909\u091f \u0906\u0917\u092f\u093e \u092c\u093f\u0915\u094b\u091d \u0935\u0947 \u0932\u093f\u092e\u093f\u091f \u0905\u0902\u091f\u0932 \u0935\u0940\u0915\u093f\u0928 \u0935\u0947\u091f.",
+            "description": "HTTP's stateless, request-response model is inefficient for real-time scenarios because it requires constant client-initiated requests to check for new data, leading to high overhead, latency, and resource consumption.",
+            "relative_importance": 9,
+            "prerequisites": [
+                2,
+                4
+            ]
+        },
+        {
+            "id": 6,
+            "standard_term": "Polling",
+            "colloquial_context": "\u091f\u093e\u0907\u092e \u0906\u0909\u091f \u0915\u0947 \u092c\u093e\u0926 \u0939\u092e\u0947\u0902 \u0926\u0941\u092c\u093e\u0930 \u0938\u0947 \u0930\u093f\u0915\u094d\u0935\u0947\u0938\u094d\u091f \u0915\u094b \u0930\u0940\u0938\u0947\u0902\u0917 \u0915\u0930\u0928\u093e \u092a\u0921\u093c\u0924\u093e \u0939\u0948\u0902; \u092a\u094b\u0932\u093f\u0902\u0917 \u0915\u094b\u0908 \u092c\u0939\u0941\u0924 \u0905\u091a\u094d\u091b\u093e \u0924\u0930\u0940\u0915\u093e \u0928\u0939\u0940\u0902 \u0939\u0948\u0902 \u0905\u092a\u0928\u0940 \u092a\u094d\u0930\u094b\u092c\u094d\u0932\u092e \u0915\u094b \u0938\u093e\u0932 \u0917\u0926\u0928\u0947 \u0915\u093e.",
+            "description": "A technique where a client repeatedly sends requests to a server at regular intervals (or after a timeout) to check for new data, often leading to wasted resources and high latency for truly real-time updates.",
+            "relative_importance": 7,
+            "prerequisites": [
+                5
+            ]
+        },
+        {
+            "id": 7,
+            "standard_term": "Server-Sent Events (SSE)",
+            "colloquial_context": "\u0938\u0930\u094d\u0935\u0930 \u0938\u0947\u0902\u091f \u090f\u0935\u0902\u091f; \u0915\u0932\u093e\u0907\u0928 \u0926\u0947\u091f\u093e \u092a\u0942\u091b \u0928\u0939\u0940\u0902 \u0915\u0930 \u0938\u0915\u0924\u093e \u0939\u0948\u0902. \u0938\u0930\u094d\u0935\u0930 \u0939\u0940 \u0932\u093f\u090f \u0915\u0932\u093e\u0907\u0928 \u0915\u094b\u0908 \u092a\u0942\u091b \u0916\u0947\u0924\u0940 \u0939\u0948\u0902; \u092f\u0939 \u0916\u093f\u0928\u0915\u094d\u0937\u0923 \u092c\u093e\u0908 \u0926\u093f\u0930\u093f\u0915\u094d\u0937\u0923\u0932 \u0928\u0939\u0940\u0902 \u0939\u0948\u0902; \u0938\u093f\u0930\u094d\u0935\u0930 \u0915\u094b \u0932\u093f\u090f \u092c\u0939\u0941\u0924 \u091c\u093e\u0926\u093e \u092b\u094d\u0930\u0947\u0915\u0941\u091f\u0932\u0940 \u0921\u0947\u091f\u093e \u0938\u0947\u0928 \u0915\u0930\u0928\u0947 \u0915\u0947 \u091c\u093c\u0930\u0942\u0930\u0924 \u0939\u0948\u0902. \u091c\u0948\u0938\u0947 \u0939\u092e\u093e\u0930\u0947 \u0907\u0902\u0938\u094d\u091f\u0930\u094d\u0917\u094d\u0930\u093e\u092e \u0932\u093e\u0907\u091c \u0932\u094b\u0917\u0947, \u092f\u0939 \u092b\u093f\u0930 \u091c\u0948\u0938\u0947 \u0905\u0917\u0930 \u0939\u092e\u0947\u0902 \u0915\u093f\u0938\u0940 \u0928\u094b\u0924\u093f\u092b\u093f\u0915\u0947\u0936\u0928 \u0915\u094b \u092d\u0939\u0941\u0924 \u0938\u093e\u0930\u0940 \u092f\u0942\u0938\u0930\u094d\u091c \u0915\u094b \u090f\u0915 \u0938\u093e\u0925 \u092c\u0947\u091c\u0928\u093e \u0939\u0948\u0902, \u092c\u094d\u0930\u0949\u0921\u0915\u093e\u0938\u094d\u091f\u093f\u0902\u0917 \u0939\u094b \u0917\u0908, \u0928\u0942\u091c \u092c\u094d\u0930\u0949\u0921\u0915\u093e\u0938\u094d\u091f\u093f\u0902\u0917 \u0939\u094b \u0917\u0908",
+            "description": "A unidirectional protocol where the server can push continuous data updates to the client (e.g., for notifications, news feeds, stock tickers), but the client cannot send data back to the server using the same connection.",
+            "relative_importance": 7,
+            "prerequisites": [
+                5
+            ]
+        },
+        {
+            "id": 8,
+            "standard_term": "Web Socket Handshake",
+            "colloquial_context": "\u0915\u094d\u0932\u093f\u092f\u0928\u094d\u091f \u0938\u0930\u094d\u0935\u0930 \u0915\u094b \u090f\u0915 \u090f\u091c\u094d\u091f\u0940 \u091f\u0940\u092a\u093f \u0939\u0948\u0902\u091f\u0938\u0947\u0915 \u0930\u0947\u0916\u0947\u0938\u094d\u091f \u092d\u0908\u0937\u0924\u093e \u0939\u0948 \u0935\u0947\u0921\u093e\u0928 \u0905\u092a\u0917\u0930\u0947\u0921 \u0939\u0948\u0921\u0930; \u0905\u092a\u0917\u0930\u0947\u0921 \u0915\u0930 \u091c\u093e\u0924\u0947 \u0939\u0948\u0902 \u0935\u0947\u092a \u0938\u093e\u0915\u093f\u091f",
+            "description": "The initial phase of establishing a Web Socket connection, which begins with an HTTP request from the client that includes an 'Upgrade' header, signaling the client's desire to switch from HTTP to the Web Socket protocol.",
+            "relative_importance": 9,
+            "prerequisites": [
+                1,
+                4
+            ]
+        },
+        {
+            "id": 9,
+            "standard_term": "Bidirectional Communication (Web Sockets)",
+            "colloquial_context": "client \u0914\u0930 server \u0915\u092d\u0940 \u092d\u0940 \u090f\u0915 \u0926\u0942\u0938\u0930\u0947 \u0915\u094b data send \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902; \u0932\u093f\u090f\u0907\u0928\u094d\u091f \u0938\u0930\u094d\u0935\u0930 \u0915\u094b \u0914\u0930 \u0938\u0930\u094d\u0935\u0930 \u0915\u094d\u0932\u093e\u0907\u0902\u091f \u0915\u094b \u0915\u092d\u0940 \u092d\u0940 \u0938\u093f\u0902\u0917\u0932 \u0915\u0923\u0947\u0915\u094d\u0937\u0928 \u0935\u0939\u0940 \u0938\u0947\u092e \u0915\u0923\u0947\u0915\u094d\u0937\u0928 \u0915\u0947 \u0924\u0942\u0901 \u0915\u094b\u0908 \u092d\u0940 \u0926\u0947\u091f\u093e \u0915\u094b\u0908 \u092d\u0940 \u092e\u0947\u0938\u0947\u091c \u091f\u094d\u0930\u093e\u0928\u0938\u094d\u092b\u0930 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902\u0964",
+            "description": "A core feature of Web Sockets where, once the connection is established, both the client and the server can send data to each other independently and at any time over the persistent connection.",
+            "relative_importance": 9,
+            "prerequisites": [
+                1
+            ]
+        },
+        {
+            "id": 10,
+            "standard_term": "Node.js for Web Socket Servers",
+            "colloquial_context": "\u0928\u094b\u0930 \u091c\u0947\u0938 \u0915\u093e. \u0928\u094b\u0930 \u091c\u0947\u0938 \u092e\u0947\u0902 \u090f\u0915 \u092c\u0947\u0928\u093f\u092b\u091f \u092f\u0939 \u0939\u0948 \u0915\u093f \u0915\u093e\u092b\u0940 \u0938\u093e\u0907 \u091c\u0940\u091c\u093c\u0947 \u0939\u092e \u0907\u0938 \u0916\u0930\u093e\u091a \u0938\u0947 \u0907\u0902\u092a\u094d\u0932\u093f\u092e\u0947\u0902\u091f \u0915\u0930\u0928\u0947 \u0915\u0947 \u091c\u094b \u0930\u0939\u0947 \u0939\u0948\u0902 \u0915\u094d\u092f\u0942\u0915\u093f \u090f\u0902\u092a\u093f\u092f\u092e \u0915\u0947 \u0905\u0902\u0926\u0930 \u092d\u0941\u0939\u093e\u0901 \u0938\u093e\u0907 \u092f\u0942\u0938\u094d\u092b\u0942\u0932 \u0932\u093f\u092c\u094d\u0930\u0947\u0921\u093f\u092f\u094b\u0902 \u0906\u0935\u0947\u0932 \u0930\u0939\u0947 \u0939\u0948\u0902.",
+            "description": "The choice of Node.js as the backend runtime environment to build Web Socket servers, leveraging its non-blocking I/O model and extensive ecosystem of npm packages (like the 'ws' library) for efficient implementation.",
             "relative_importance": 6,
             "prerequisites": [
                 1
             ]
         },
         {
-            "id": 3,
-            "standard_term": "HTTP (Hypertext Transfer Protocol)",
-            "colloquial_context": "\u090f\u0936\u094d\u091f\u0940 \u091f\u0940\u092a\u0940, \u090f\u0938\u091f\u0940\u091f\u0940\u092a\u0940 \u0930\u0939\u093e\u0901, \u090f\u0936\u094d\u091f\u0940 \u091f\u0940\u092a\u0940 \u092c\u0930\u0935\u093e\u0926 \u0915\u0930 \u0930\u0939\u093e\u0901 \u092c\u0916\u0930",
-            "description": "A stateless, request-response protocol primarily used for fetching web pages. Each client request generates a server response, but the connection is typically closed afterward. Described as 'like email' due to its turn-based communication.",
-            "relative_importance": 9,
-            "prerequisites": []
-        },
-        {
-            "id": 4,
-            "standard_term": "WebSocket Protocol",
-            "colloquial_context": "\u0935\u0947\u092a \u0938\u094b\u0915\u093f\u0924, \u0935\u0947\u092c \u0938\u094b\u0915\u093f\u0924 \u092a\u094d\u0930\u094b\u091f\u094b \u0915\u094b\u0921",
-            "description": "A full-duplex communication protocol that provides persistent, bi-directional communication channels over a single TCP connection, allowing both client and server to send messages to each other at any time.",
-            "relative_importance": 10,
-            "prerequisites": [
-                3
-            ]
-        },
-        {
-            "id": 5,
-            "standard_term": "WebSocket Handshake (HTTP-based)",
-            "colloquial_context": "\u0915\u094d\u0932\u093e\u090f\u0902\u091f \u0938\u0930\u094d\u0935\u0930 \u0915\u094b \u0907\u0915 \u090f\u0915 \u090f\u0915 \u0935\u0947\u092a \u0936\u094d\u091f\u0940 \u091f\u0940\u092a\u0940 \u0930\u0939\u093e\u0901 \u092c\u093e\u0926 \u0915\u0930 \u0917\u0917\u0947",
-            "description": "The initial process where a client sends a regular HTTP GET request with specific headers to a server to initiate a WebSocket connection. If the server supports WebSockets, it responds with an HTTP status code 101 (Switching Protocols), establishing the persistent WebSocket connection.",
-            "relative_importance": 7,
-            "prerequisites": [
-                3,
-                4
-            ]
-        },
-        {
-            "id": 6,
-            "standard_term": "Full-Duplex Communication",
-            "colloquial_context": "\u0938\u0947\u092e \u0924\u093e\u0908\u092a\u0930, \u0915\u094d\u0932\u093e\u0908\u091f \u0905\u0928 \u0938\u0930\u0935\u0930 \u090f\u0915 \u0926\u0942\u091b\u093c\u0947 \u0938\u0947 \u092c\u093e\u0926 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u0948\u0902, \u0915\u094b\u0908 \u092d\u0940 \u0915\u0935\u0935\u0940 \u092e\u0947\u0936\u091a \u0926\u0947\u0936\u0915\u0924\u093e \u0939\u0948 \u090f\u0915 \u0926\u0941\u0938\u094d\u091f\u0930\u0947 \u0915\u094b",
-            "description": "A communication system where both parties (client and server) can send and receive messages simultaneously and independently, without waiting for the other to finish. This is a key advantage of WebSockets over traditional HTTP.",
+            "id": 11,
+            "standard_term": "Setting up Web Socket Server (Node.js)",
+            "colloquial_context": "\u0938\u0930\u094d\u0935\u0930 \u0915\u094b \u092c\u093f\u0932\u094d\u0921 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u0947 \u0935\u093f \u0939\u0948\u0902 \u0935\u0947\u092a \u0938\u094b\u0915\u093f\u091f \u0906\u0936\u0940; \u0932\u0947\u091f\u094d\u0938 \u0915\u094d\u0930\u093f\u092f\u0947\u091f \u0906\u0930 \u0935\u0947\u092a \u0938\u0949\u0915\u093f\u091f \u0938\u0930\u094d\u0935\u0930 \u0915\u094b\u0902\u0938\u094d\u091f \u0935\u0947\u092a \u0938\u0949\u0915\u093f\u091f \u0938\u0930\u094d\u0935\u0930 \u091c\u093f\u0938\u0915\u0947 \u0905\u0902\u0926\u0930 \u092c\u0947\u0938\u093f\u0915\u0932\u0940 \u0935\u093f\u091c\u093c\u093e\u0928\u094d\u0938 \u0915\u0947 \u0932\u093f\u090f \u092a\u093e\u0938 \u0907\u0938 \u0938\u0930\u094d\u0935\u0930 \u0907\u0902\u0938\u094d\u091f\u093e\u0928\u094d\u0938. \u0907\u0938\u0947 \u092c\u0947\u0938\u093f\u0915\u0932\u0940 \u0915\u094d\u092f\u093e \u0939\u094b\u0917\u093e \u0905\u0917\u0930 \u092a\u0949\u0930\u094d\u091f 8080 \u0939\u0948 \u0924\u094b \u0909\u0938\u0940 \u092a\u0930 \u0939\u092e \u0938\u094d\u091f\u0940\u091f \u092a\u0940 \u0915\u0947 \u0930\u0916\u0947\u0938\u094d\u091f \u092d\u0940\u091c \u0930\u0939\u0947 \u0939\u0942\u0901\u0917\u0947 \u0914\u0930 \u0909\u0938\u0940 \u092a\u0930 \u0939\u092e \u0905\u092a\u0928\u0940 \u0921\u092c\u094d\u0932\u0942\u0938 \u0915\u0947 \u0930\u0916\u0947\u0938\u094d\u091f \u092d\u0940\u091c \u0930\u0939\u0947 \u0939\u0942\u0901\u0917\u0947.",
+            "description": "The practical process of initializing and configuring a Web Socket server using a Node.js library (e.g., 'ws'), often involving binding it to an existing HTTP server instance and specifying a port for shared operation.",
             "relative_importance": 8,
             "prerequisites": [
-                4
+                4,
+                8,
+                10
             ]
         },
         {
-            "id": 7,
-            "standard_term": "WebSocket Server Implementation",
-            "colloquial_context": "\u0935\u092c \u0938\u094b\u0915\u0924 \u0938\u0930\u0935\u0930 \u092c\u093f\u0932\u094d\u0917 \u0915\u0930\u0928\u0947 \u0935\u093e\u0932\u0947\u0902, \u0907\u0902\u092a\u094b\u091f \u090f\u0915\u0938\u092a\u094d\u0930\u0947\u0938, \u0907\u0902\u092a\u094b\u091f \u0938\u092e\u091d\u0947\u0902 \u0915\u094b\u0932 \u0935\u0947\u092c \u0938\u094b\u0915\u093f\u0924 \u0938\u0930\u0935\u0930, \u0915\u094d\u0930\u093f\u090f\u091f \u0906\u0930 \u0906\u092a \u0906\u0928 \u0932\u0947\u0901\u0938 \u0938\u0947\u091f \u0905\u092a \u0906\u0930 \u092a\u094b\u091f",
-            "description": "The process of writing server-side code (e.g., using Node.js with Express and a WebSocket library) to create a server that listens for and handles WebSocket connections, processes incoming messages, and sends outgoing messages to connected clients.",
-            "relative_importance": 9,
-            "prerequisites": [
-                4
-            ]
-        },
-        {
-            "id": 8,
-            "standard_term": "Network Tab (Browser Developer Tools)",
-            "colloquial_context": "\u0928\u0947\u091f\u0935\u0915 \u0924\u093e\u092d, \u0928\u0947\u091f\u0941\u0917 \u0924\u093e\u092d",
-            "description": "A feature in web browser developer tools used by developers to monitor and inspect network activity, including HTTP requests and WebSocket connections, allowing verification of connection status and message flow.",
-            "relative_importance": 6,
-            "prerequisites": []
-        },
-        {
-            "id": 9,
-            "standard_term": "WebSocket Events (e.g., 'connection', 'message')",
-            "colloquial_context": "\u090f\u0938 \u0921\u093c\u094b\u091f \u0914\u0928 \u0915\u0928\u0947\u0915\u094d\u0938\u093f\u0928, \u0915\u0928\u0947\u0915\u094d\u0938\u093f\u0928 \u092f\u0942\u091d \u0928\u0947 \u090f\u0935\u091f, \u0938\u0947\u0902\u091f \u092e\u0948\u0902 \u092e\u0948\u0938\u091a\u094d\u091a\u094d\u091a\u094d\u091a\u094d\u091a",
-            "description": "WebSocket communication relies on an event-driven model. Common events include 'connection' (when a client connects) and 'message' (when data is received from a connected client or sent to it), which trigger corresponding callback functions.",
+            "id": 12,
+            "standard_term": "Client-side Web Socket API (Browser)",
+            "colloquial_context": "\u0935\u0947\u092c \u0938\u0949\u0915\u093f\u0924 \u092c\u094d\u0930\u093e\u0909\u0938\u0930 \u090f\u092a\u093f\u092f\u093e \u0939\u094b\u0924\u0940 \u0939\u0948\u0902; client \u0938\u093e\u0907\u091f \u0938\u0947, javascript \u0938\u0947 \u0915\u0948\u0938\u0947 websocket server \u0915\u0947 \u092a\u093e\u0938 request \u091c\u093e\u090f\u0902, \u0935\u094b \u092e\u0948\u0902 \u0906\u092a\u0915\u094b as a homework problem \u0926\u0947\u0928\u093e \u091a\u093e\u0913\u0917\u0940",
+            "description": "The native 'WebSocket' API available in modern web browsers (JavaScript) that allows client-side applications to establish, manage, and communicate over Web Socket connections with a server.",
             "relative_importance": 7,
             "prerequisites": [
-                7
-            ]
-        },
-        {
-            "id": 10,
-            "standard_term": "WebSocket Browser API",
-            "colloquial_context": "\u0935\u0947\u092a \u0938\u094b\u0915\u093f\u0924 \u092c\u094d\u0930\u093e\u0909\u091c\u0930 \u0906\u092a \u092f\u093e\u0908, \u091c\u093e\u0935\u093e\u0938\u094d\u0915\u094d\u0930\u093f\u092a\u094d\u0924 \u0938\u0947 \u0915\u0948\u0938\u0947 \u0935\u0947\u092a\u094d\u0938\u094b\u0915\u093f\u0924 \u0938\u0930\u0935\u093e\u0915\u0947 \u092b\u093e\u091c \u0930\u0947\u0915\u094d\u0935\u0947\u0938 \u091c\u093e\u090f",
-            "description": "A client-side JavaScript API available in web browsers that enables web pages to establish and interact with WebSocket servers, allowing them to send and receive messages asynchronously.",
-            "relative_importance": 7,
-            "prerequisites": [
-                4
+                1,
+                8
             ]
         }
     ]

@@ -1,66 +1,114 @@
 {
-    "video_summary": "The video introduces Nginx, explaining its core benefits such as load balancing, HTTP caching, and acting as a reverse proxy, demonstrating its role in handling user requests and briefly touching upon its practical deployment using Docker on Ubuntu.",
+    "video_summary": "This video introduces Nginx, explaining its core functions as a powerful web server, reverse proxy, load balancer, and HTTP cache, by first differentiating between forward and reverse proxies and discussing its role in various web architectures.",
     "concepts": [
         {
             "id": 1,
             "standard_term": "Nginx",
-            "colloquial_context": "\u0907\u0902\u091c\u0928\u093f\u0915\u094d\u0938, \u090f\u0902\u091c\u0928\u093f\u0915\u094d\u0938, \u0928\u093f\u091c\u094b\u0928\u093f\u0915\u0938",
-            "description": "A powerful open-source web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache. It's known for its high performance and low resource consumption.",
+            "colloquial_context": "engineX, Ingenix",
+            "description": "A powerful, open-source web server, reverse proxy, load balancer, HTTP cache, and API gateway that uses a non-threaded, event-driven architecture to handle high concurrency and traffic efficiently.",
             "relative_importance": 10,
-            "prerequisites": [
-                "Load Balancing",
-                "HTTP Caching",
-                "Reverse Proxy"
-            ]
+            "prerequisites": []
         },
         {
             "id": 2,
-            "standard_term": "Load Balancing",
-            "colloquial_context": "\u0932\u094b\u0921 \u092c\u0932\u0928\u094d\u0938\u093f\u0902",
-            "description": "The process of distributing network traffic across multiple servers to ensure no single server is overloaded, improving responsiveness and availability.",
-            "relative_importance": 7,
+            "standard_term": "HTTP Connection",
+            "colloquial_context": "HTTP khunetiction, normal HTTP connection",
+            "description": "A direct communication link established between a client (e.g., web browser) and a web server over the HTTP protocol to exchange data.",
+            "relative_importance": 4,
             "prerequisites": []
         },
         {
             "id": 3,
-            "standard_term": "HTTP Caching",
-            "colloquial_context": "\u0939\u094d\u091f\u0940\u092a\u0940 \u0915\u093e\u0936\u093f\u0902, \u0905\u091a\u094d\u091f\u0940 \u092a\u0940 \u0915\u093e\u0937\u094d\u091f\u093f\u0902\u0917, \u0915\u093e\u0937",
-            "description": "Storing copies of frequently accessed web content (like images or pages) closer to the user or on an intermediary server (like Nginx) to reduce server load and speed up subsequent requests.",
-            "relative_importance": 8,
-            "prerequisites": []
+            "standard_term": "Proxy Server",
+            "colloquial_context": "VPN, proxy server",
+            "description": "An intermediary server that acts on behalf of a client to request resources from another server. It forwards client requests and receives responses for them, exemplified by a VPN.",
+            "relative_importance": 6,
+            "prerequisites": [
+                2
+            ]
         },
         {
             "id": 4,
-            "standard_term": "Reverse Proxy",
-            "colloquial_context": "\u0930\u0947\u0935\u0930\u094d\u0938 \u092a\u094d\u0930\u094b\u0915\u094d\u0938\u0940",
-            "description": "A server that sits in front of one or more web servers and forwards client requests to those web servers. It enhances security, performance, and reliability.",
+            "standard_term": "Forward Proxy",
+            "colloquial_context": "forward proxy",
+            "description": "A type of proxy server where clients explicitly route their requests through the proxy to access external servers. The destination server sees the proxy's IP, not the client's, often used for client-side privacy or access control.",
             "relative_importance": 7,
-            "prerequisites": []
+            "prerequisites": [
+                3
+            ]
         },
         {
             "id": 5,
-            "standard_term": "Docker",
-            "colloquial_context": "\u0921\u094b\u0915\u0930",
-            "description": "A platform for developing, shipping, and running applications in 'containers', which are lightweight, standalone, executable packages that include everything needed to run a piece of software.",
-            "relative_importance": 6,
-            "prerequisites": []
+            "standard_term": "Reverse Proxy",
+            "colloquial_context": "reverse proxy, middle server (when referring to Nginx's role)",
+            "description": "A type of proxy server that sits in front of one or more web servers, intercepting client requests. It forwards the requests to the appropriate backend server and delivers the server's response back to the client, effectively hiding the backend servers. Nginx is a popular reverse proxy.",
+            "relative_importance": 10,
+            "prerequisites": [
+                4
+            ]
         },
         {
             "id": 6,
-            "standard_term": "Docker Image",
-            "colloquial_context": "\u0907\u0915 \u0907\u092e\u091a, \u0907\u092e\u091a",
-            "description": "A read-only template with instructions for creating a Docker container. It includes the application, libraries, dependencies, and configurations required to run it.",
-            "relative_importance": 5,
+            "standard_term": "Load Balancing",
+            "colloquial_context": "load balancing, round robin algorithm",
+            "description": "The process of distributing incoming network traffic across multiple servers to ensure optimal resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. It can use algorithms like round robin.",
+            "relative_importance": 8,
             "prerequisites": [
-                "Docker"
+                5
             ]
         },
         {
             "id": 7,
-            "standard_term": "Ubuntu",
-            "colloquial_context": "\u0905\u092c\u0942\u0902\u0924\u0941",
-            "description": "A popular open-source Linux operating system, often used for server deployments and development environments.",
-            "relative_importance": 3,
+            "standard_term": "HTTP Caching",
+            "colloquial_context": "HTTP caching, cash",
+            "description": "Storing copies of frequently requested web content (e.g., images, files) either on the client side or on intermediary servers (like Nginx) to reduce latency and server load for subsequent requests.",
+            "relative_importance": 8,
+            "prerequisites": [
+                2
+            ]
+        },
+        {
+            "id": 8,
+            "standard_term": "API Gateway",
+            "colloquial_context": "API gateway",
+            "description": "A server that acts as the single entry point for a set of APIs. It handles routing requests to appropriate backend services, API composition, and other API management tasks. Nginx can be configured to act as an API Gateway.",
+            "relative_importance": 7,
+            "prerequisites": []
+        },
+        {
+            "id": 9,
+            "standard_term": "Serving Static Files",
+            "colloquial_context": "static files, image files, video files, cash (for caching static files)",
+            "description": "Delivering unchanging content (e.g., HTML, CSS, JavaScript, images, videos) directly from a web server's file system to clients. Nginx is highly efficient at this, often with built-in caching capabilities.",
+            "relative_importance": 6,
+            "prerequisites": [
+                2
+            ]
+        },
+        {
+            "id": 10,
+            "standard_term": "SSL Certificate",
+            "colloquial_context": "SSL chahiaye, SSL certificate",
+            "description": "A digital certificate that authenticates the identity of a website and encrypts communication between a web browser and a server using SSL/TLS technology, ensuring secure data transmission.",
+            "relative_importance": 5,
+            "prerequisites": [
+                2
+            ]
+        },
+        {
+            "id": 11,
+            "standard_term": "Basic Linux Commands",
+            "colloquial_context": "vim kya hote hai, commands kaise hote hai, change directory kaise karenge, basic Linux, CLA (Command Line Interface)",
+            "description": "Fundamental command-line operations in Linux (e.g., file system navigation, text editing with Vim, managing processes) that are essential for configuring and managing servers like Nginx.",
+            "relative_importance": 4,
+            "prerequisites": []
+        },
+        {
+            "id": 12,
+            "standard_term": "AWS EC2 Instance",
+            "colloquial_context": "AWS account, EC2 machine",
+            "description": "A virtual server (instance) provided by Amazon Web Services' Elastic Compute Cloud (EC2) service, used for deploying and hosting applications in a scalable cloud environment. An AWS account is a prerequisite for the course.",
+            "relative_importance": 4,
             "prerequisites": []
         }
     ]

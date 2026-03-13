@@ -1,134 +1,170 @@
 {
     "topic": "web_sockets",
-    "video_summary": "This video explains the critical difference between HTTP and WebSocket protocols, emphasizing the need for real-time data in applications like trading, and provides a foundational understanding of establishing and implementing WebSocket communication.",
-    "total_concepts": 10,
+    "video_summary": "This video provides an introduction to Web Sockets, explaining their core functionality, contrasting them with HTTP, Polling, and Server-Sent Events for real-time applications, and demonstrating the setup of a basic Web Socket server using Node.js.",
+    "total_concepts": 12,
     "recommended_sequence": [
         {
             "step": 1,
             "concept_id": 1,
-            "concept": "Real-time Data",
-            "description": "Information that is delivered immediately as it is collected, reflecting the current state, crucial for applications like trading apps that require up-to-the-minute updates.",
-            "relative_importance": 8,
+            "concept": "Web Sockets Overview",
+            "description": "Web Sockets provide a persistent, full-duplex communication channel over a single TCP connection, allowing both client and server to send data at any time without repeatedly initiating new requests.",
+            "relative_importance": 9,
             "prerequisites": [],
             "unlocks": [
-                "Trading Applications"
+                "Verifying Web Socket Connection (Browser DevTools)",
+                "Web Socket Handshake",
+                "Bidirectional Communication (Web Sockets)",
+                "Node.js for Web Socket Servers",
+                "Client-side Web Socket API (Browser)"
             ],
-            "reason": "'Real-time Data' is a root concept (no prerequisites) and must be understood first because it directly enables: Trading Applications."
+            "reason": "'Web Sockets Overview' is a root concept (no prerequisites) and must be understood first because it directly enables: Verifying Web Socket Connection (Browser DevTools), Web Socket Handshake, Bidirectional Communication (Web Sockets), Node.js for Web Socket Servers, Client-side Web Socket API (Browser)."
         },
         {
             "step": 2,
-            "concept_id": 3,
-            "concept": "HTTP (Hypertext Transfer Protocol)",
-            "description": "A stateless, request-response protocol primarily used for fetching web pages. Each client request generates a server response, but the connection is typically closed afterward. Described as 'like email' due to its turn-based communication.",
-            "relative_importance": 9,
+            "concept_id": 2,
+            "concept": "Real-time Applications",
+            "description": "Applications that require instantaneous data updates, such as live trading platforms, instant messaging services, live dashboards, or notification systems, where timely information exchange is critical.",
+            "relative_importance": 7,
             "prerequisites": [],
             "unlocks": [
-                "WebSocket Protocol",
-                "WebSocket Handshake (HTTP-based)"
+                "Limitations of HTTP for Real-time Systems"
             ],
-            "reason": "'HTTP (Hypertext Transfer Protocol)' is a root concept (no prerequisites) and must be understood first because it directly enables: WebSocket Protocol, WebSocket Handshake (HTTP-based)."
+            "reason": "'Real-time Applications' is a root concept (no prerequisites) and must be understood first because it directly enables: Limitations of HTTP for Real-time Systems."
         },
         {
             "step": 3,
-            "concept_id": 8,
-            "concept": "Network Tab (Browser Developer Tools)",
-            "description": "A feature in web browser developer tools used by developers to monitor and inspect network activity, including HTTP requests and WebSocket connections, allowing verification of connection status and message flow.",
-            "relative_importance": 6,
+            "concept_id": 4,
+            "concept": "HTTP Request-Response Model",
+            "description": "A stateless communication protocol where the client initiates a request, and the server sends a response; data is typically sent in headers with each new request, and the connection closes after the response.",
+            "relative_importance": 8,
             "prerequisites": [],
-            "unlocks": [],
-            "reason": "'Network Tab (Browser Developer Tools)' is an isolated foundational concept with no prerequisites and no dependents."
+            "unlocks": [
+                "Limitations of HTTP for Real-time Systems",
+                "Web Socket Handshake",
+                "Setting up Web Socket Server (Node.js)"
+            ],
+            "reason": "'HTTP Request-Response Model' is a root concept (no prerequisites) and must be understood first because it directly enables: Limitations of HTTP for Real-time Systems, Web Socket Handshake, Setting up Web Socket Server (Node.js)."
         },
         {
             "step": 4,
-            "concept_id": 2,
-            "concept": "Trading Applications",
-            "description": "Software applications used for buying and selling financial instruments, which heavily rely on up-to-the-minute market data for effective decision-making.",
-            "relative_importance": 6,
+            "concept_id": 3,
+            "concept": "Verifying Web Socket Connection (Browser DevTools)",
+            "description": "The practical method of using the browser's developer tools (specifically the Network tab and WebSocket filter) to inspect active Web Socket connections and the messages exchanged over them.",
+            "relative_importance": 8,
             "prerequisites": [
-                "Real-time Data"
+                "Web Sockets Overview"
             ],
             "unlocks": [],
-            "reason": "'Trading Applications' builds upon Real-time Data (importance 6/10) and is a terminal concept in this learning path."
+            "reason": "'Verifying Web Socket Connection (Browser DevTools)' builds upon Web Sockets Overview (importance 8/10) and is a terminal concept in this learning path."
         },
         {
             "step": 5,
-            "concept_id": 4,
-            "concept": "WebSocket Protocol",
-            "description": "A full-duplex communication protocol that provides persistent, bi-directional communication channels over a single TCP connection, allowing both client and server to send messages to each other at any time.",
-            "relative_importance": 10,
+            "concept_id": 9,
+            "concept": "Bidirectional Communication (Web Sockets)",
+            "description": "A core feature of Web Sockets where, once the connection is established, both the client and the server can send data to each other independently and at any time over the persistent connection.",
+            "relative_importance": 9,
             "prerequisites": [
-                "HTTP (Hypertext Transfer Protocol)"
+                "Web Sockets Overview"
             ],
-            "unlocks": [
-                "WebSocket Handshake (HTTP-based)",
-                "Full-Duplex Communication",
-                "WebSocket Server Implementation",
-                "WebSocket Browser API"
-            ],
-            "reason": "'WebSocket Protocol' builds upon HTTP (Hypertext Transfer Protocol) (importance 10/10) and is required before studying: WebSocket Handshake (HTTP-based), Full-Duplex Communication, WebSocket Server Implementation, WebSocket Browser API."
+            "unlocks": [],
+            "reason": "'Bidirectional Communication (Web Sockets)' builds upon Web Sockets Overview (importance 9/10) and is a terminal concept in this learning path."
         },
         {
             "step": 6,
-            "concept_id": 5,
-            "concept": "WebSocket Handshake (HTTP-based)",
-            "description": "The initial process where a client sends a regular HTTP GET request with specific headers to a server to initiate a WebSocket connection. If the server supports WebSockets, it responds with an HTTP status code 101 (Switching Protocols), establishing the persistent WebSocket connection.",
-            "relative_importance": 7,
+            "concept_id": 10,
+            "concept": "Node.js for Web Socket Servers",
+            "description": "The choice of Node.js as the backend runtime environment to build Web Socket servers, leveraging its non-blocking I/O model and extensive ecosystem of npm packages (like the 'ws' library) for efficient implementation.",
+            "relative_importance": 6,
             "prerequisites": [
-                "HTTP (Hypertext Transfer Protocol)",
-                "WebSocket Protocol"
+                "Web Sockets Overview"
             ],
-            "unlocks": [],
-            "reason": "'WebSocket Handshake (HTTP-based)' builds upon HTTP (Hypertext Transfer Protocol), WebSocket Protocol (importance 7/10) and is a terminal concept in this learning path."
+            "unlocks": [
+                "Setting up Web Socket Server (Node.js)"
+            ],
+            "reason": "'Node.js for Web Socket Servers' builds upon Web Sockets Overview (importance 6/10) and is required before studying: Setting up Web Socket Server (Node.js)."
         },
         {
             "step": 7,
-            "concept_id": 6,
-            "concept": "Full-Duplex Communication",
-            "description": "A communication system where both parties (client and server) can send and receive messages simultaneously and independently, without waiting for the other to finish. This is a key advantage of WebSockets over traditional HTTP.",
-            "relative_importance": 8,
+            "concept_id": 5,
+            "concept": "Limitations of HTTP for Real-time Systems",
+            "description": "HTTP's stateless, request-response model is inefficient for real-time scenarios because it requires constant client-initiated requests to check for new data, leading to high overhead, latency, and resource consumption.",
+            "relative_importance": 9,
             "prerequisites": [
-                "WebSocket Protocol"
+                "Real-time Applications",
+                "HTTP Request-Response Model"
             ],
-            "unlocks": [],
-            "reason": "'Full-Duplex Communication' builds upon WebSocket Protocol (importance 8/10) and is a terminal concept in this learning path."
+            "unlocks": [
+                "Polling",
+                "Server-Sent Events (SSE)"
+            ],
+            "reason": "'Limitations of HTTP for Real-time Systems' builds upon Real-time Applications, HTTP Request-Response Model (importance 9/10) and is required before studying: Polling, Server-Sent Events (SSE)."
         },
         {
             "step": 8,
-            "concept_id": 7,
-            "concept": "WebSocket Server Implementation",
-            "description": "The process of writing server-side code (e.g., using Node.js with Express and a WebSocket library) to create a server that listens for and handles WebSocket connections, processes incoming messages, and sends outgoing messages to connected clients.",
+            "concept_id": 8,
+            "concept": "Web Socket Handshake",
+            "description": "The initial phase of establishing a Web Socket connection, which begins with an HTTP request from the client that includes an 'Upgrade' header, signaling the client's desire to switch from HTTP to the Web Socket protocol.",
             "relative_importance": 9,
             "prerequisites": [
-                "WebSocket Protocol"
+                "Web Sockets Overview",
+                "HTTP Request-Response Model"
             ],
             "unlocks": [
-                "WebSocket Events (e.g., 'connection', 'message')"
+                "Setting up Web Socket Server (Node.js)",
+                "Client-side Web Socket API (Browser)"
             ],
-            "reason": "'WebSocket Server Implementation' builds upon WebSocket Protocol (importance 9/10) and is required before studying: WebSocket Events (e.g., 'connection', 'message')."
+            "reason": "'Web Socket Handshake' builds upon Web Sockets Overview, HTTP Request-Response Model (importance 9/10) and is required before studying: Setting up Web Socket Server (Node.js), Client-side Web Socket API (Browser)."
         },
         {
             "step": 9,
-            "concept_id": 10,
-            "concept": "WebSocket Browser API",
-            "description": "A client-side JavaScript API available in web browsers that enables web pages to establish and interact with WebSocket servers, allowing them to send and receive messages asynchronously.",
+            "concept_id": 6,
+            "concept": "Polling",
+            "description": "A technique where a client repeatedly sends requests to a server at regular intervals (or after a timeout) to check for new data, often leading to wasted resources and high latency for truly real-time updates.",
             "relative_importance": 7,
             "prerequisites": [
-                "WebSocket Protocol"
+                "Limitations of HTTP for Real-time Systems"
             ],
             "unlocks": [],
-            "reason": "'WebSocket Browser API' builds upon WebSocket Protocol (importance 7/10) and is a terminal concept in this learning path."
+            "reason": "'Polling' builds upon Limitations of HTTP for Real-time Systems (importance 7/10) and is a terminal concept in this learning path."
         },
         {
             "step": 10,
-            "concept_id": 9,
-            "concept": "WebSocket Events (e.g., 'connection', 'message')",
-            "description": "WebSocket communication relies on an event-driven model. Common events include 'connection' (when a client connects) and 'message' (when data is received from a connected client or sent to it), which trigger corresponding callback functions.",
+            "concept_id": 7,
+            "concept": "Server-Sent Events (SSE)",
+            "description": "A unidirectional protocol where the server can push continuous data updates to the client (e.g., for notifications, news feeds, stock tickers), but the client cannot send data back to the server using the same connection.",
             "relative_importance": 7,
             "prerequisites": [
-                "WebSocket Server Implementation"
+                "Limitations of HTTP for Real-time Systems"
             ],
             "unlocks": [],
-            "reason": "'WebSocket Events (e.g., 'connection', 'message')' builds upon WebSocket Server Implementation (importance 7/10) and is a terminal concept in this learning path."
+            "reason": "'Server-Sent Events (SSE)' builds upon Limitations of HTTP for Real-time Systems (importance 7/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 11,
+            "concept_id": 11,
+            "concept": "Setting up Web Socket Server (Node.js)",
+            "description": "The practical process of initializing and configuring a Web Socket server using a Node.js library (e.g., 'ws'), often involving binding it to an existing HTTP server instance and specifying a port for shared operation.",
+            "relative_importance": 8,
+            "prerequisites": [
+                "HTTP Request-Response Model",
+                "Web Socket Handshake",
+                "Node.js for Web Socket Servers"
+            ],
+            "unlocks": [],
+            "reason": "'Setting up Web Socket Server (Node.js)' builds upon HTTP Request-Response Model, Web Socket Handshake, Node.js for Web Socket Servers (importance 8/10) and is a terminal concept in this learning path."
+        },
+        {
+            "step": 12,
+            "concept_id": 12,
+            "concept": "Client-side Web Socket API (Browser)",
+            "description": "The native 'WebSocket' API available in modern web browsers (JavaScript) that allows client-side applications to establish, manage, and communicate over Web Socket connections with a server.",
+            "relative_importance": 7,
+            "prerequisites": [
+                "Web Sockets Overview",
+                "Web Socket Handshake"
+            ],
+            "unlocks": [],
+            "reason": "'Client-side Web Socket API (Browser)' builds upon Web Sockets Overview, Web Socket Handshake (importance 7/10) and is a terminal concept in this learning path."
         }
     ],
     "parallel_groups": [
@@ -138,18 +174,18 @@
             "concepts": [
                 {
                     "concept_id": 1,
-                    "concept": "Real-time Data",
-                    "relative_importance": 8
-                },
-                {
-                    "concept_id": 3,
-                    "concept": "HTTP (Hypertext Transfer Protocol)",
+                    "concept": "Web Sockets Overview",
                     "relative_importance": 9
                 },
                 {
-                    "concept_id": 8,
-                    "concept": "Network Tab (Browser Developer Tools)",
-                    "relative_importance": 6
+                    "concept_id": 2,
+                    "concept": "Real-time Applications",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 4,
+                    "concept": "HTTP Request-Response Model",
+                    "relative_importance": 8
                 }
             ],
             "parallel_count": 3,
@@ -160,130 +196,128 @@
             "level_label": "Level 2",
             "concepts": [
                 {
-                    "concept_id": 2,
-                    "concept": "Trading Applications",
+                    "concept_id": 3,
+                    "concept": "Verifying Web Socket Connection (Browser DevTools)",
+                    "relative_importance": 8
+                },
+                {
+                    "concept_id": 9,
+                    "concept": "Bidirectional Communication (Web Sockets)",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 10,
+                    "concept": "Node.js for Web Socket Servers",
                     "relative_importance": 6
                 },
                 {
-                    "concept_id": 4,
-                    "concept": "WebSocket Protocol",
-                    "relative_importance": 10
+                    "concept_id": 5,
+                    "concept": "Limitations of HTTP for Real-time Systems",
+                    "relative_importance": 9
+                },
+                {
+                    "concept_id": 8,
+                    "concept": "Web Socket Handshake",
+                    "relative_importance": 9
                 }
             ],
-            "parallel_count": 2,
-            "note": "All 2 concept(s) at this level can be studied in parallel once the previous level is complete."
+            "parallel_count": 5,
+            "note": "All 5 concept(s) at this level can be studied in parallel once the previous level is complete."
         },
         {
             "group": 3,
             "level_label": "Level 3",
             "concepts": [
                 {
-                    "concept_id": 5,
-                    "concept": "WebSocket Handshake (HTTP-based)",
+                    "concept_id": 6,
+                    "concept": "Polling",
                     "relative_importance": 7
                 },
                 {
-                    "concept_id": 6,
-                    "concept": "Full-Duplex Communication",
+                    "concept_id": 7,
+                    "concept": "Server-Sent Events (SSE)",
+                    "relative_importance": 7
+                },
+                {
+                    "concept_id": 11,
+                    "concept": "Setting up Web Socket Server (Node.js)",
                     "relative_importance": 8
                 },
                 {
-                    "concept_id": 7,
-                    "concept": "WebSocket Server Implementation",
-                    "relative_importance": 9
-                },
-                {
-                    "concept_id": 10,
-                    "concept": "WebSocket Browser API",
+                    "concept_id": 12,
+                    "concept": "Client-side Web Socket API (Browser)",
                     "relative_importance": 7
                 }
             ],
             "parallel_count": 4,
             "note": "All 4 concept(s) at this level can be studied in parallel once the previous level is complete."
-        },
-        {
-            "group": 4,
-            "level_label": "Level 4",
-            "concepts": [
-                {
-                    "concept_id": 9,
-                    "concept": "WebSocket Events (e.g., 'connection', 'message')",
-                    "relative_importance": 7
-                }
-            ],
-            "parallel_count": 1,
-            "note": "Study after completing the previous level."
         }
     ],
     "components": [
         {
             "component_id": 1,
-            "concept_count": 2,
+            "concept_count": 12,
             "is_isolated": false,
             "sequence": [
                 {
                     "step": 1,
                     "concept_id": 1,
-                    "concept": "Real-time Data"
+                    "concept": "Web Sockets Overview"
                 },
                 {
                     "step": 2,
                     "concept_id": 2,
-                    "concept": "Trading Applications"
-                }
-            ]
-        },
-        {
-            "component_id": 2,
-            "concept_count": 7,
-            "is_isolated": false,
-            "sequence": [
-                {
-                    "step": 1,
-                    "concept_id": 3,
-                    "concept": "HTTP (Hypertext Transfer Protocol)"
-                },
-                {
-                    "step": 2,
-                    "concept_id": 4,
-                    "concept": "WebSocket Protocol"
+                    "concept": "Real-time Applications"
                 },
                 {
                     "step": 3,
-                    "concept_id": 5,
-                    "concept": "WebSocket Handshake (HTTP-based)"
+                    "concept_id": 4,
+                    "concept": "HTTP Request-Response Model"
                 },
                 {
                     "step": 4,
-                    "concept_id": 6,
-                    "concept": "Full-Duplex Communication"
+                    "concept_id": 3,
+                    "concept": "Verifying Web Socket Connection (Browser DevTools)"
                 },
                 {
                     "step": 5,
-                    "concept_id": 7,
-                    "concept": "WebSocket Server Implementation"
+                    "concept_id": 9,
+                    "concept": "Bidirectional Communication (Web Sockets)"
                 },
                 {
                     "step": 6,
                     "concept_id": 10,
-                    "concept": "WebSocket Browser API"
+                    "concept": "Node.js for Web Socket Servers"
                 },
                 {
                     "step": 7,
-                    "concept_id": 9,
-                    "concept": "WebSocket Events (e.g., 'connection', 'message')"
-                }
-            ]
-        },
-        {
-            "component_id": 3,
-            "concept_count": 1,
-            "is_isolated": true,
-            "sequence": [
+                    "concept_id": 5,
+                    "concept": "Limitations of HTTP for Real-time Systems"
+                },
                 {
-                    "step": 1,
+                    "step": 8,
                     "concept_id": 8,
-                    "concept": "Network Tab (Browser Developer Tools)"
+                    "concept": "Web Socket Handshake"
+                },
+                {
+                    "step": 9,
+                    "concept_id": 6,
+                    "concept": "Polling"
+                },
+                {
+                    "step": 10,
+                    "concept_id": 7,
+                    "concept": "Server-Sent Events (SSE)"
+                },
+                {
+                    "step": 11,
+                    "concept_id": 11,
+                    "concept": "Setting up Web Socket Server (Node.js)"
+                },
+                {
+                    "step": 12,
+                    "concept_id": 12,
+                    "concept": "Client-side Web Socket API (Browser)"
                 }
             ]
         }
@@ -291,7 +325,7 @@
     "metadata": {
         "algorithm": "Kahn's BFS topological sort",
         "handles_disconnected_components": true,
-        "total_parallel_groups": 4,
-        "total_components": 3
+        "total_parallel_groups": 3,
+        "total_components": 1
     }
 }
